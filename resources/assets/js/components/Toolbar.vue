@@ -1,43 +1,86 @@
 <template>
-
-   <div>
-    <v-navigation-drawer
-      v-model="navBar"
+<div>
+  <v-navigation-drawer
+       v-model="navBar"
       absolute
       bottom
-      temporary
+      temporar
     >
-        <v-list dense class="pt-0">
-           <router-link to="/">
+      <v-list dense class="pt-0">
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon>home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>Home</v-list-tile-title>
+        </v-list-tile>
+
+        <v-list-group
+          prepend-icon="account_circle"
+          value="true"
+        >
+          <template v-slot:activator>
             <v-list-tile>
+              <v-list-tile-title>Users</v-list-tile-title>
+            </v-list-tile>
+          </template>
+          <v-list-group
+            no-action
+            sub-group
+            value="true"
+          >
+            <template v-slot:activator>
+              <v-list-tile>
+                <v-list-tile-title>Admin</v-list-tile-title>
+              </v-list-tile>
+            </template>
+
+            <v-list-tile
+              v-for="(admin, i) in admins"
+              :key="i"
+    
+            >
+              <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
               <v-list-tile-action>
-                <v-icon>home</v-icon>
+                <v-icon v-text="admin[1]"></v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>ホーム</v-list-tile-title>
-              </v-list-tile-content>
             </v-list-tile>
-          </router-link>
-          <router-link to="/TantouUser">
-            <v-list-tile>
-              <v-list-tile-action >
-                <v-icon>settings</v-icon>
+          </v-list-group>
+
+          <v-list-group
+            sub-group
+            no-action
+          >
+            <template v-slot:activator>
+              <v-list-tile>
+                <v-list-tile-title>Actions</v-list-tile-title>
+              </v-list-tile>
+            </template>
+            <v-list-tile
+              v-for="(crud, i) in cruds"
+              :key="i"
+
+            >
+              <v-list-tile-title v-text="crud[0]"></v-list-tile-title>
+              <v-list-tile-action>
+                <v-icon v-text="crud[1]"></v-icon>
               </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>座席表</v-list-tile-title>
-              </v-list-tile-content>
             </v-list-tile>
-          </router-link>
-        </v-list>
+          </v-list-group>
+        </v-list-group>
+      </v-list>
     </v-navigation-drawer>
+
+
     <v-toolbar
       dark
-      color="blue-grey darken-4"
+      color="primary"
       clipped-left
-      class="mx-auto overflow-hidden"
+      fixed
+      app
     >
       <v-toolbar-side-icon @click.stop="navBar = !navBar"></v-toolbar-side-icon>
-      <v-toolbar-title class="white--text">Ito-san</v-toolbar-title>
+      <v-toolbar-title class="white--text">Title</v-toolbar-title>
+
       <v-spacer></v-spacer>
          <router-link to="/login">
             <v-list-tile color:white>
@@ -49,46 +92,65 @@
               </v-list-tile-action>
             </v-list-tile>
           </router-link>   
-       
-
-        　
     </v-toolbar>
+
 
     </div>
 
+
+
 </template>
 
+
+
 <script>
+
     export default {
+
         data() {
+
             return {
-                items: [
-                    {title : 'Top', to : '/dashbord', show : true},
-                    {title : 'Login', to : '/login', show : !User.loggedIn()},
-                    {title : 'Logout', to : '/logout', show : User.loggedIn()},
-                ],
-                navBar:null,
-                message: (new Date()).toLocaleString()
+
+            admins: [
+                    ['Management', 'people_outline'],
+                    ['Settings', 'settings']
+                  ],
+            cruds: [
+              ['Create', 'add'],
+              ['Read', 'insert_drive_file'],
+              ['Update', 'update'],
+              ['Delete', 'delete']
+            ],
+
+            navBar:null
             }
+
         },
+
         created() {
+
             EventBus.$on('logout', () => {
+
                 User.logout()
+
             })
-            setInterval(this.clock(),1000);
-        },
-        methods: {
-          clock() {
-            this.message = (new Date()).toLocaleString()
-          }
-        },
+
+        }
+
     }
+
 </script>
 
+
+
 <style>
+
       a {
+
     text-decoration: none;
+
   }
-  
+
+
 
 </style>

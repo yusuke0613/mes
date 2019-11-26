@@ -86,338 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@plutonium-js/vue-stagger/dist/bundle.esm.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@plutonium-js/vue-stagger/dist/bundle.esm.js ***!
-  \*******************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var script = {
-	props: {
-		tag: String,
-		show: Boolean,
-		reverse: Boolean,
-		interval: {
-			type:[String, Number],
-			default:0
-		},
-		duration: {
-			type:[String, Number],
-			default:0
-		},
-		animateOnMount: {
-			type: Boolean,
-			default: true
-		},
-		easeType: {
-			type: String,
-			default: 'linear'
-		}
-	},
-	created() {
-		const lib = this.$PU.lib;
-		this.PUD = {
-			asyncRefs:new lib.asyncRefs()
-		};
-		this.addSlotKeys();
-	},
-	mounted() {
-		this.$slots.default.forEach(item => {
-			item.elm.classList.add("item", this.show?"item-to":"item-from");
-			item.elm.addEventListener("transitionend", this.handleAnimationEnd);
-		});
-	},
-	beforeDestroy() {
-		["animateDelay","updateAnimation"].forEach(item => {this.PUD.asyncRefs.cancel(item);});
-		this.$slots.default.forEach(item => {
-			item.elm.removeEventListener("transitionend", this.handleAnimationEnd);
-		});
-	},
-	beforeUpdate() {
-		this.addSlotKeys();
-	},
-	updated() {
-		if (this.PUD.curIndex===undefined) this.PUD.curIndex = this.show==this.reverse?this.$slots.default.length-1:0;
-		this.$el.classList.remove("to-ended", "from-ended");
-		this.$el.classList.add("active");
-		this.PUD.asyncRefs.add("updateAnimation", "requestAnimationFrame", requestAnimationFrame(() => {
-			//note: force reflow so that transitions apply
-			this.$el.offsetWidth;
-			this.animate();
-		}));
-	},
-	methods: {
-		//add unique keys to the slot children (vue requires a unique key when the slot is the descendant of a transition-group)
-		addSlotKeys() {
-			this.$slots.default.forEach((item, index) => {
-				item.key = item.key!=null?item.key:index;
-			});
-		},
-		//animate the slot children
-		animate() {
-			const _T = this;
-			const lib = this.$PU.lib;
-			const slots = [...this.$slots.default];
-			const slotLen = slots.length;
-			_animate(this.PUD.curIndex); function _animate(index) {
-				_T.PUD.curIndex = index;
-				const item = slots[index];
-				item.elm.classList.remove("item-"+(_T.show?'from':'to'));
-				item.elm.classList.add("item-"+(_T.show?'to':'from'));
-				const nextIndex = index+((_T.show?1:-1)*(_T.reverse?-1:1));
-				let interval = _T.duration?(parseFloat(_T.duration)*1000)/slots.length:parseFloat(_T.interval)*1000;
-				if (_T.easeType!='linear') {
-					const nextInRangeIndex = Math.min(Math.max(nextIndex, 0), slotLen-1);
-					const pos = lib.animate.tween(index, 0, 1, slotLen-1, _T.easeType);
-					const nextPos = lib.animate.tween(nextInRangeIndex, 0, 1, slotLen-1, _T.easeType);
-					interval = Math.abs(pos-nextPos)*(slotLen*interval);
-				}
-				if (nextIndex>=0 && nextIndex<slotLen) _T.PUD.asyncRefs.add("animateDelay", "setTimeout", setTimeout(() => {
-					_animate(nextIndex);
-				}, interval));
-			}
-		},
-		//handle animation end
-		handleAnimationEnd(e) {
-			const slots = this.$slots.default;
-			if ((this.PUD.curIndex===(this.show&&!this.reverse?slots.length-1:0)) && e.target===slots[this.show?slots.length-1:0].elm) {
-				this.$el.classList.remove((this.show?'from':'to')+"-ended");
-				this.$el.classList.add((this.show?'to':'from')+"-ended");
-				if (!this.show) this.$el.classList.remove('active');
-			}
-		}
-	}
-};
-
-function normalizeComponent(template, style, script, scopeId, isFunctionalTemplate, moduleIdentifier
-/* server only */
-, shadowMode, createInjector, createInjectorSSR, createInjectorShadow) {
-  if (typeof shadowMode !== 'boolean') {
-    createInjectorSSR = createInjector;
-    createInjector = shadowMode;
-    shadowMode = false;
-  } // Vue.extend constructor export interop.
-
-
-  var options = typeof script === 'function' ? script.options : script; // render functions
-
-  if (template && template.render) {
-    options.render = template.render;
-    options.staticRenderFns = template.staticRenderFns;
-    options._compiled = true; // functional template
-
-    if (isFunctionalTemplate) {
-      options.functional = true;
-    }
-  } // scopedId
-
-
-  if (scopeId) {
-    options._scopeId = scopeId;
-  }
-
-  var hook;
-
-  if (moduleIdentifier) {
-    // server build
-    hook = function hook(context) {
-      // 2.3 injection
-      context = context || // cached call
-      this.$vnode && this.$vnode.ssrContext || // stateful
-      this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext; // functional
-      // 2.2 with runInNewContext: true
-
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__;
-      } // inject component styles
-
-
-      if (style) {
-        style.call(this, createInjectorSSR(context));
-      } // register component module identifier for async chunk inference
-
-
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier);
-      }
-    }; // used by ssr in case component is cached and beforeCreate
-    // never gets called
-
-
-    options._ssrRegister = hook;
-  } else if (style) {
-    hook = shadowMode ? function () {
-      style.call(this, createInjectorShadow(this.$root.$options.shadowRoot));
-    } : function (context) {
-      style.call(this, createInjector(context));
-    };
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // register for functional component in vue file
-      var originalRender = options.render;
-
-      options.render = function renderWithStyleInjection(h, context) {
-        hook.call(context);
-        return originalRender(h, context);
-      };
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate;
-      options.beforeCreate = existing ? [].concat(existing, hook) : [hook];
-    }
-  }
-
-  return script;
-}
-
-var normalizeComponent_1 = normalizeComponent;
-
-/* script */
-const __vue_script__ = script;
-
-/* template */
-var __vue_render__ = function() {
-  var _vm = this;
-  var _h = _vm.$createElement;
-  var _c = _vm._self._c || _h;
-  return _c(
-    "transition-group",
-    _vm._g({ attrs: { tag: _vm.tag || "div", css: false } }, _vm.$listeners),
-    [_vm._t("default")],
-    2
-  )
-};
-var __vue_staticRenderFns__ = [];
-__vue_render__._withStripped = true;
-
-  /* style */
-  const __vue_inject_styles__ = undefined;
-  /* scoped */
-  const __vue_scope_id__ = undefined;
-  /* module identifier */
-  const __vue_module_identifier__ = undefined;
-  /* functional template */
-  const __vue_is_functional_template__ = false;
-  /* style inject */
-  
-  /* style inject SSR */
-  
-
-  
-  var stagger = normalizeComponent_1(
-    { render: __vue_render__, staticRenderFns: __vue_staticRenderFns__ },
-    __vue_inject_styles__,
-    __vue_script__,
-    __vue_scope_id__,
-    __vue_is_functional_template__,
-    __vue_module_identifier__,
-    undefined,
-    undefined
-  );
-
-const lib = new function() {
-	//animate methods
-	this.animate = new function(){
-		
-		//tween a value
-		this.tween = function(time, startVal, endVal, duration, easeType) {
-			let val = startVal;
-			if (duration && startVal!==endVal) {
-				let type = (easeType||'quadratic-inout').replace(/ease/i,"quadratic").replace(/in\-out/i,"inout").split('-');
-				const ease = (this.ease[type[1]||'inout']||(()=>{}))[type[0]]||this.ease.inout.quadratic;
-				val = ease(time, startVal, endVal-startVal, duration);
-			}
-			return val;
-		};
-		
-		//easing functions
-		this.ease = {
-			in:{
-				quadratic:(t,b,c,d) => c*(t/=d)*t+b,
-				cubic: (t,b,c,d) => c*(t/=d)*t*t+b,
-				quartic:(t,b,c,d) => c*(t/=d)*t*t*t+b,
-				quintic:(t,b,c,d) => c*(t/=d)*t*t*t*t+b,
-				sinusoidal:(t,b,c,d) => -c*Math.cos(t/d*(Math.PI/2))+c+b,
-				exponential:(t,b,c,d) => t==0 ? b : c*Math.pow(2,10*(t/d - 1))+b,
-				circular:(t,b,c,d) => -c*(Math.sqrt(1-(t/=d)*t)-1)+b
-			},
-			out:{
-				quadratic:(t,b,c,d) => -c*(t/=d)*(t-2)+b,
-				cubic:(t,b,c,d) => c*((t=t/d-1)*t*t+1)+b,
-				quartic:(t,b,c,d) => -c*((t=t/d-1)*t*t*t-1)+b,
-				quintic:(t,b,c,d) => c*((t=t/d-1)*t*t*t*t+1)+b,
-				sinusoidal:(t,b,c,d) => c*Math.sin(t/d*(Math.PI/2))+b,
-				exponential:(t,b,c,d) => t==d ? b+c : c*(-Math.pow(2,-10*t/d)+1)+b,
-				circular:(t,b,c,d) => c*Math.sqrt(1-(t=t/d-1)*t)+b
-			},
-			inout:{
-				linear:(t,b,c,d) => c*t/d+b,
-				quadratic:(t,b,c,d) => (t/=d/2)<1 ? c/2*t*t+b : -c/2*((--t)*(t-2)-1)+ b,
-				cubic:(t,b,c,d) => (t/=d/2)<1 ? c/2*t*t*t+b : c/2*((t-=2)*t*t+2)+b,
-				quartic:(t,b,c,d) => (t/=d/2)<1 ? c/2*t*t*t*t+b : -c/2*((t-=2)*t*t*t-2)+b,
-				quintic:(t,b,c,d) => (t/=d/2)<1 ? c/2*t*t*t*t*t+b : c/2*((t-=2)*t*t*t*t+2)+b,
-				sinusoidal:(t,b,c,d) => -c/2 * (Math.cos(Math.PI*t/d)-1)+b,
-				exponential:(t,b,c,d) => t==0 ? b : t==d ? b+c : (t/=d/2)<1 ? c/2*Math.pow(2,10*(t - 1))+b : c/2*(-Math.pow(2,-10*--t)+2)+b,
-				circular:(t,b,c,d) => (t/=d/2)<1 ? -c/2*(Math.sqrt(1-t*t)-1)+b : c/2*(Math.sqrt(1-(t-=2)*t)+1)+ b
-			}
-		};
-	};
-	
-	//asynchronous reference manager (setTimeout, requestAnimationFrame, and future functionality as needed)
-	this.asyncRefs = function() {
-		const _T = this;
-		const refs = {};
-		
-		//add a reference
-		this.add = function(id, type, obj) {
-			_T.cancel(id);
-			refs[id] = {
-				obj:obj,
-				type:type
-			};
-		};
-		
-		//cancel a reference
-		this.cancel = function(id) {
-			let ref = refs[id]; if (ref) {
-				if (ref.type==='setTimeout') clearTimeout(ref.obj);
-				else if (ref.type==='requestAnimationFrame') cancelAnimationFrame(ref.obj);
-				delete refs[id];
-			}
-		};
-	};
-};
-
-var index = {
-	install(Vue) {
-		Vue.component("pu-stagger", stagger);
-		//create the global plutonium library object and add library methods if not already present
-		const PU = Vue.prototype.$PU||(Vue.prototype.$PU = {lib:{}});		
-		for (var i in lib) { if (!PU.lib[i]) PU.lib[i] = lib[i]; }
-	}
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (index);
-
-
-/***/ }),
-
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -2188,6 +1856,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2275,36 +1954,63 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      items: [{
-        title: 'Top',
-        to: '/dashbord',
-        show: true
-      }, {
-        title: 'Login',
-        to: '/login',
-        show: !User.loggedIn()
-      }, {
-        title: 'Logout',
-        to: '/logout',
-        show: User.loggedIn()
-      }],
-      navBar: null,
-      message: new Date().toLocaleString()
+      admins: [['Management', 'people_outline'], ['Settings', 'settings']],
+      cruds: [['Create', 'add'], ['Read', 'insert_drive_file'], ['Update', 'update'], ['Delete', 'delete']],
+      navBar: null
     };
   },
   created: function created() {
     EventBus.$on('logout', function () {
       User.logout();
     });
-    setInterval(this.clock(), 1000);
-  },
-  methods: {
-    clock: function clock() {
-      this.message = new Date().toLocaleString();
-    }
   }
 });
 
@@ -11462,7 +11168,7 @@ exports.push([module.i, "@-webkit-keyframes shake {\n  59% {\n    margin-left: 0
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\na {\n  text-decoration: none;\n}\n\n\n", ""]);
+exports.push([module.i, "\na {\n\n  text-decoration: none;\n}\n\n\n\n", ""]);
 
 
 /***/ }),
@@ -51529,7 +51235,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _vm.test() ? _c("toolbar") : _vm._e(),
+      _c("toolbar"),
       _vm._v(" "),
       _c(
         "v-content",
@@ -51551,7 +51257,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _vm.test() ? _c("app-footer") : _vm._e()
+      _c("app-footer")
     ],
     1
   )
@@ -51620,7 +51326,7 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { absolute: "", bottom: "", temporary: "" },
+          attrs: { absolute: "", bottom: "", temporar: "" },
           model: {
             value: _vm.navBar,
             callback: function($$v) {
@@ -51635,50 +51341,135 @@ var render = function() {
             { staticClass: "pt-0", attrs: { dense: "" } },
             [
               _c(
-                "router-link",
-                { attrs: { to: "/" } },
+                "v-list-tile",
                 [
-                  _c(
-                    "v-list-tile",
-                    [
-                      _c(
-                        "v-list-tile-action",
-                        [_c("v-icon", [_vm._v("home")])],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-list-tile-content",
-                        [_c("v-list-tile-title", [_vm._v("ホーム")])],
-                        1
-                      )
-                    ],
-                    1
-                  )
+                  _c("v-list-tile-action", [_c("v-icon", [_vm._v("home")])], 1),
+                  _vm._v(" "),
+                  _c("v-list-tile-title", [_vm._v("Home")])
                 ],
                 1
               ),
               _vm._v(" "),
               _c(
-                "router-link",
-                { attrs: { to: "/TantouUser" } },
+                "v-list-group",
+                {
+                  attrs: { "prepend-icon": "account_circle", value: "true" },
+                  scopedSlots: _vm._u([
+                    {
+                      key: "activator",
+                      fn: function() {
+                        return [
+                          _c(
+                            "v-list-tile",
+                            [_c("v-list-tile-title", [_vm._v("Users")])],
+                            1
+                          )
+                        ]
+                      },
+                      proxy: true
+                    }
+                  ])
+                },
                 [
+                  _vm._v(" "),
                   _c(
-                    "v-list-tile",
+                    "v-list-group",
+                    {
+                      attrs: {
+                        "no-action": "",
+                        "sub-group": "",
+                        value: "true"
+                      },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "activator",
+                          fn: function() {
+                            return [
+                              _c(
+                                "v-list-tile",
+                                [_c("v-list-tile-title", [_vm._v("Admin")])],
+                                1
+                              )
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
                     [
-                      _c(
-                        "v-list-tile-action",
-                        [_c("v-icon", [_vm._v("settings")])],
-                        1
-                      ),
                       _vm._v(" "),
-                      _c(
-                        "v-list-tile-content",
-                        [_c("v-list-tile-title", [_vm._v("座席表")])],
-                        1
-                      )
+                      _vm._l(_vm.admins, function(admin, i) {
+                        return _c(
+                          "v-list-tile",
+                          { key: i },
+                          [
+                            _c("v-list-tile-title", {
+                              domProps: { textContent: _vm._s(admin[0]) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-tile-action",
+                              [
+                                _c("v-icon", {
+                                  domProps: { textContent: _vm._s(admin[1]) }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      })
                     ],
-                    1
+                    2
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "v-list-group",
+                    {
+                      attrs: { "sub-group": "", "no-action": "" },
+                      scopedSlots: _vm._u([
+                        {
+                          key: "activator",
+                          fn: function() {
+                            return [
+                              _c(
+                                "v-list-tile",
+                                [_c("v-list-tile-title", [_vm._v("Actions")])],
+                                1
+                              )
+                            ]
+                          },
+                          proxy: true
+                        }
+                      ])
+                    },
+                    [
+                      _vm._v(" "),
+                      _vm._l(_vm.cruds, function(crud, i) {
+                        return _c(
+                          "v-list-tile",
+                          { key: i },
+                          [
+                            _c("v-list-tile-title", {
+                              domProps: { textContent: _vm._s(crud[0]) }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "v-list-tile-action",
+                              [
+                                _c("v-icon", {
+                                  domProps: { textContent: _vm._s(crud[1]) }
+                                })
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      })
+                    ],
+                    2
                   )
                 ],
                 1
@@ -51693,8 +51484,13 @@ var render = function() {
       _c(
         "v-toolbar",
         {
-          staticClass: "mx-auto overflow-hidden",
-          attrs: { dark: "", color: "blue-grey darken-4", "clipped-left": "" }
+          attrs: {
+            dark: "",
+            color: "primary",
+            "clipped-left": "",
+            fixed: "",
+            app: ""
+          }
         },
         [
           _c("v-toolbar-side-icon", {
@@ -51707,7 +51503,7 @@ var render = function() {
           }),
           _vm._v(" "),
           _c("v-toolbar-title", { staticClass: "white--text" }, [
-            _vm._v("Ito-san")
+            _vm._v("Title")
           ]),
           _vm._v(" "),
           _c("v-spacer"),
@@ -96639,10 +96435,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuetify */ "./node_modules/vuetify/dist/vuetify.js");
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _Router_router_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Router/router.js */ "./resources/assets/js/Router/router.js");
-/* harmony import */ var _plutonium_js_vue_stagger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @plutonium-js/vue-stagger */ "./node_modules/@plutonium-js/vue-stagger/dist/bundle.esm.js");
-/* harmony import */ var _node_modules_vuetify_dist_vuetify_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../node_modules/vuetify/dist/vuetify.css */ "./node_modules/vuetify/dist/vuetify.css");
-/* harmony import */ var _node_modules_vuetify_dist_vuetify_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_dist_vuetify_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Heplers_User_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Heplers/User.js */ "./resources/assets/js/Heplers/User.js");
+/* harmony import */ var _node_modules_vuetify_dist_vuetify_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vuetify/dist/vuetify.css */ "./node_modules/vuetify/dist/vuetify.css");
+/* harmony import */ var _node_modules_vuetify_dist_vuetify_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vuetify_dist_vuetify_css__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Heplers_User_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Heplers/User.js */ "./resources/assets/js/Heplers/User.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -96654,13 +96449,11 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 
 
-
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuetify__WEBPACK_IMPORTED_MODULE_1___default.a);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(_plutonium_js_vue_stagger__WEBPACK_IMPORTED_MODULE_3__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(window.puStagger);
 
 
-window.User = _Heplers_User_js__WEBPACK_IMPORTED_MODULE_5__["default"];
+window.User = _Heplers_User_js__WEBPACK_IMPORTED_MODULE_4__["default"];
 window.EventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 /**
  * The following block of code may be used to automatically register your
@@ -97146,15 +96939,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************!*\
   !*** ./resources/assets/js/dashbord/DashBordComponentTv.vue ***!
   \**************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DashBordComponentTv_vue_vue_type_template_id_e26414fc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DashBordComponentTv.vue?vue&type=template&id=e26414fc& */ "./resources/assets/js/dashbord/DashBordComponentTv.vue?vue&type=template&id=e26414fc&");
 /* harmony import */ var _DashBordComponentTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DashBordComponentTv.vue?vue&type=script&lang=js& */ "./resources/assets/js/dashbord/DashBordComponentTv.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _DashBordComponentTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _DashBordComponentTv_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _DashBordComponentTv_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DashBordComponentTv.vue?vue&type=style&index=0&lang=css& */ "./resources/assets/js/dashbord/DashBordComponentTv.vue?vue&type=style&index=0&lang=css&");
+/* empty/unused harmony star reexport *//* harmony import */ var _DashBordComponentTv_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DashBordComponentTv.vue?vue&type=style&index=0&lang=css& */ "./resources/assets/js/dashbord/DashBordComponentTv.vue?vue&type=style&index=0&lang=css&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -97186,7 +96978,7 @@ component.options.__file = "resources/assets/js/dashbord/DashBordComponentTv.vue
 /*!***************************************************************************************!*\
   !*** ./resources/assets/js/dashbord/DashBordComponentTv.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -97854,8 +97646,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\yusuke\Desktop\realtimeApp\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\yusuke\Desktop\realtimeApp\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\TC117041\Desktop\MES\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\TC117041\Desktop\MES\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })
