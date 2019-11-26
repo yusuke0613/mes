@@ -1,8 +1,8 @@
 <template>
 
-    <v-container grid-list-md style="padding:0">
+    <v-container grid-list-md style="padding:4px">
         <v-layout row wrap>
-          <v-flex v-for="dashboarduser in dashboardusers" :key="dashboarduser.id" xl3 lg4 md6 xs12>
+          <v-flex v-for="dashboarduser in dashboardusers" :key="dashboarduser.id" xl4 lg4 md6 xs12>
              <v-card v-bind:class="{ 
               'zaiseki-box-d' : dashboarduser.status === 0, 
               'riseki-box-d'  : dashboarduser.status === 1, 
@@ -745,8 +745,6 @@
 }
 
 .container fluid fill-height  {
-  margin:  0 !important;
-  padding: 0 !important;
 }
 
 .container.grid-list-md .layout .flex {

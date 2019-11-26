@@ -128,7 +128,6 @@
 <style>
 
 .container {
-  padding: 0 !important;
   padding-top: 15px !important;
 }
 

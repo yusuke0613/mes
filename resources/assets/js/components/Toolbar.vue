@@ -1,12 +1,20 @@
 <template>
 <div>
   <v-navigation-drawer
-       v-model="navBar"
-      absolute
-      bottom
-      temporar
+ 
+      app
+       :mini-variant.sync="mini"
+       style="margin-top:30px;"
     >
       <v-list dense class="pt-0">
+
+        <v-list-tile>
+          <v-list-tile-action>
+            <v-icon @click.stop="mini = !mini">home</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>Home</v-list-tile-title>
+        </v-list-tile>
+
         <v-list-tile>
           <v-list-tile-action>
             <v-icon>home</v-icon>
@@ -70,31 +78,7 @@
       </v-list>
     </v-navigation-drawer>
 
-
-    <v-toolbar
-      dark
-      color="primary"
-      clipped-left
-      fixed
-      app
-    >
-      <v-toolbar-side-icon @click.stop="navBar = !navBar"></v-toolbar-side-icon>
-      <v-toolbar-title class="white--text">Title</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-         <router-link to="/login">
-            <v-list-tile color:white>
-              <v-list-tile-content color:white>
-                <v-list-tile-title style="color:white;">LOGIN</v-list-tile-title>
-              </v-list-tile-content>
-               <v-list-tile-action>
-                <v-icon color:white>account_circle</v-icon>
-              </v-list-tile-action>
-            </v-list-tile>
-          </router-link>   
-    </v-toolbar>
-
-
+    
     </div>
 
 
@@ -122,7 +106,8 @@
               ['Delete', 'delete']
             ],
 
-            navBar:null
+            navBar:null,
+            mini: true,
             }
 
         },

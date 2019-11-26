@@ -1983,28 +1983,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       admins: [['Management', 'people_outline'], ['Settings', 'settings']],
       cruds: [['Create', 'add'], ['Read', 'insert_drive_file'], ['Update', 'update'], ['Delete', 'delete']],
-      navBar: null
+      navBar: null,
+      mini: true
     };
   },
   created: function created() {
@@ -11182,7 +11167,7 @@ exports.push([module.i, "\na {\n\n  text-decoration: none;\n}\n\n\n\n", ""]);
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n.green-box {\r\n  padding:3px;\r\n  background-color: #009688 !important;\n}\n.yerrow-box {\r\n  padding:3px;\r\n  background-color: #CDDC39 !important;\n}\n.red-box {\r\n  padding:3px;\r\n  background-color: #F44336 !important;\n}\n.zero-box {\r\n  font-size:12px  !important;\r\n  padding: 4px; \r\n  color:\"white\" !important;\n}\n.first-box {\r\n  font-size:12px  !important;\r\n  padding: 4px; \r\n  color:rgb(198, 40, 40) !important;\n}\n.second-box {\r\n  font-size:12px  !important;\r\n  padding: 4px; \r\n  color:rgb(40, 53, 147) !important;\n}\n.third-box {\r\n  font-size:12px;\r\n  padding: 4px; \r\n  color:rgb(46, 125, 50) !important;\n}\n.color-nomal {\r\n  font-size:12px;\r\n  color: #fff !important;\n}\n.color-orange {\r\n  font-size:12px;\r\n  color: orange !important;\n}\n.container fluid fill-height  {\r\n  margin:  0 !important;\r\n  padding: 0 !important;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.green-box {\r\n  padding:3px;\r\n  background-color: #009688 !important;\n}\n.yerrow-box {\r\n  padding:3px;\r\n  background-color: #CDDC39 !important;\n}\n.red-box {\r\n  padding:3px;\r\n  background-color: #F44336 !important;\n}\n.zero-box {\r\n  font-size:12px  !important;\r\n  padding: 4px; \r\n  color:\"white\" !important;\n}\n.first-box {\r\n  font-size:12px  !important;\r\n  padding: 4px; \r\n  color:rgb(198, 40, 40) !important;\n}\n.second-box {\r\n  font-size:12px  !important;\r\n  padding: 4px; \r\n  color:rgb(40, 53, 147) !important;\n}\n.third-box {\r\n  font-size:12px;\r\n  padding: 4px; \r\n  color:rgb(46, 125, 50) !important;\n}\n.color-nomal {\r\n  font-size:12px;\r\n  color: #fff !important;\n}\n.color-orange {\r\n  font-size:12px;\r\n  color: orange !important;\n}\r\n\r\n\r\n", ""]);
 
 
 /***/ }),
@@ -11196,7 +11181,7 @@ exports.push([module.i, "\n.green-box {\r\n  padding:3px;\r\n  background-color:
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n.zero-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:\"white\" !important;\n}\n.first-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:#E91E63 !important;\n}\n.second-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:rgb(40, 53, 147) !important;\n}\n.third-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:#009688 !important;\n}\n.color-nomal {\r\n  font-size:12px;\r\n  color: #fff !important;\n}\n.color-orange {\r\n  font-size:12px;\r\n  color: orange !important;\n}\n.container fluid fill-height  {\r\n  margin:  0 !important;\r\n  padding: 0 !important;\n}\n.container.grid-list-md .layout .flex {\r\n    padding: 2px !important;\n}\n.zaiseki-badge, .riseki-badge, .torikomi-badge, .renraku-badge, .taiseki-badge {\r\n\r\n  margin-right: 1px !important;\r\n  margin-left: 1px !important;\r\n  font-size: 12px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\n}\n.zaiseki-badge {\r\n  background-color: #4CAF50; \r\n  cursor: pointer;\n}\n.riseki-badge {\r\n  background-color: #FF9800; \r\n  cursor: pointer;\n}\n.torikomi-badge {\r\n  background-color: #2196F3; \r\n  cursor: pointer;\n}\n.renraku-badge {\r\n  background-color: #9C27B0; \r\n  cursor: pointer;\n}\n.taiseki-badge {\r\n  background-color: #E91E63; \r\n  cursor: pointer;\n}\n.riseki-box {\r\n  background-color: #4CAF50;\n}\n.zaiseki-box {\r\n  padding:3px;\r\n  background-color: #34495e !important;\n}\n.riseki-box {\r\n  padding:3Px;\r\n  background-color: #c0392b !important;\n}\n.torikomi-box {\r\n  padding:3px;\r\n  background-color: #3F51B5 !important;\n}\n.renraku-box {\r\n  padding:3Px;\r\n  background-color: #009688 !important;\n}\n.taiseki-box {\r\n  padding:3px;\r\n  background-color: #E91E63 !important;\n}\n.zaiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #4CAF50 !important;\n}\n.riseki-list {\r\n  padding:3Px;\r\n  color: #fff;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #FF9800 !important;\n}\n.torikomi-list {\r\n  margin: auto;\r\n  padding:3px;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  color: #fff;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #2196F3 !important;\n}\n.renraku-list {\r\n  padding:3Px;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  color: #fff;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #9C27B0 !important;\n}\n.taiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #E91E63 !important;\n}\n.zaiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.riseki-list:hover {\r\nopacity: 0.5 ;\n}\n.torikomi-list:hover {\r\nopacity: 0.5 ;\n}\n.renraku-list:hover {\r\nopacity: 0.5 ;\n}\n.taiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.zaiseki-box-d {\r\n  padding:3px;\r\n  background-color:#4CAF50 !important;\n}\n.riseki-box-d {\r\n  padding:3Px;\r\n  background-color:#FF9800 !important;\n}\n.taiseki-box-d {\r\n  padding:3px;\r\n  background-color:#E91E63 !important;\n}\n.zero-badge-i, .first-badge-i, .second-badge-i, .third-badge-i {\r\n  /*\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  */\r\n  font-size: 14px !important;\r\n  font-weight: bold !important;\n}\n.zero-badge-i {\r\n  color: #34495e !important;\n}\n.first-badge-i {\r\n  color: #c0392b !important;\n}\n.second-badge-i {\r\n  color: #3F51B5 !important;\n}\n.third-badge-i {\r\n  color: #009688 !important;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.zero-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:\"white\" !important;\n}\n.first-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:#E91E63 !important;\n}\n.second-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:rgb(40, 53, 147) !important;\n}\n.third-box {\r\n  font-size:16px  !important;\r\n  padding: 4px; \r\n  color:#009688 !important;\n}\n.color-nomal {\r\n  font-size:12px;\r\n  color: #fff !important;\n}\n.color-orange {\r\n  font-size:12px;\r\n  color: orange !important;\n}\n.container fluid fill-height  {\n}\n.container.grid-list-md .layout .flex {\r\n    padding: 2px !important;\n}\n.zaiseki-badge, .riseki-badge, .torikomi-badge, .renraku-badge, .taiseki-badge {\r\n\r\n  margin-right: 1px !important;\r\n  margin-left: 1px !important;\r\n  font-size: 12px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\n}\n.zaiseki-badge {\r\n  background-color: #4CAF50; \r\n  cursor: pointer;\n}\n.riseki-badge {\r\n  background-color: #FF9800; \r\n  cursor: pointer;\n}\n.torikomi-badge {\r\n  background-color: #2196F3; \r\n  cursor: pointer;\n}\n.renraku-badge {\r\n  background-color: #9C27B0; \r\n  cursor: pointer;\n}\n.taiseki-badge {\r\n  background-color: #E91E63; \r\n  cursor: pointer;\n}\n.riseki-box {\r\n  background-color: #4CAF50;\n}\n.zaiseki-box {\r\n  padding:3px;\r\n  background-color: #34495e !important;\n}\n.riseki-box {\r\n  padding:3Px;\r\n  background-color: #c0392b !important;\n}\n.torikomi-box {\r\n  padding:3px;\r\n  background-color: #3F51B5 !important;\n}\n.renraku-box {\r\n  padding:3Px;\r\n  background-color: #009688 !important;\n}\n.taiseki-box {\r\n  padding:3px;\r\n  background-color: #E91E63 !important;\n}\n.zaiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #4CAF50 !important;\n}\n.riseki-list {\r\n  padding:3Px;\r\n  color: #fff;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #FF9800 !important;\n}\n.torikomi-list {\r\n  margin: auto;\r\n  padding:3px;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  color: #fff;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #2196F3 !important;\n}\n.renraku-list {\r\n  padding:3Px;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  color: #fff;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #9C27B0 !important;\n}\n.taiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #E91E63 !important;\n}\n.zaiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.riseki-list:hover {\r\nopacity: 0.5 ;\n}\n.torikomi-list:hover {\r\nopacity: 0.5 ;\n}\n.renraku-list:hover {\r\nopacity: 0.5 ;\n}\n.taiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.zaiseki-box-d {\r\n  padding:3px;\r\n  background-color:#4CAF50 !important;\n}\n.riseki-box-d {\r\n  padding:3Px;\r\n  background-color:#FF9800 !important;\n}\n.taiseki-box-d {\r\n  padding:3px;\r\n  background-color:#E91E63 !important;\n}\n.zero-badge-i, .first-badge-i, .second-badge-i, .third-badge-i {\r\n  /*\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  */\r\n  font-size: 14px !important;\r\n  font-weight: bold !important;\n}\n.zero-badge-i {\r\n  color: #34495e !important;\n}\n.first-badge-i {\r\n  color: #c0392b !important;\n}\n.second-badge-i {\r\n  color: #3F51B5 !important;\n}\n.third-badge-i {\r\n  color: #009688 !important;\n}\r\n\r\n", ""]);
 
 
 /***/ }),
@@ -11210,7 +11195,7 @@ exports.push([module.i, "\n.zero-box {\r\n  font-size:16px  !important;\r\n  pad
 
 exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
 // Module
-exports.push([module.i, "\n.container {\r\n  padding: 0 !important;\r\n  padding-top: 15px !important;\n}\n.container fluid fill-height  {\r\n  margin:  0 !important;\r\n  padding: 0 !important;\n}\n.container.grid-list-md .layout .flex {\r\n    padding: 1px !important;\n}\n.zaiseki-badge-tv, .riseki-badge-tv, .torikomi-badge-tv, .renraku-badge-tv, .taiseki-badge-tv {\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  font-size: 12px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  font-weight: normal !important;\n}\n.zaiseki-badge-tv {\r\n  background-color: #4CAF50; \r\n  cursor: pointer;\n}\n.riseki-badge-tv {\r\n  background-color: #FF9800; \r\n  cursor: pointer;\n}\n.taiseki-badge-tv {\r\n  background-color: #E91E63; \r\n  cursor: pointer;\n}\n.zero-badge, .first-badge, .second-badge, .third-badge {\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  font-size: 12px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  font-weight: normal !important;\n}\n.zero-badge {\r\n  background-color: #34495e !important;\n}\n.first-badge {\r\n  background-color: #c0392b !important;\n}\n.second-badge {\r\n  background-color: #3F51B5 !important;\n}\n.third-badge {\r\n  background-color: #009688 !important;\n}\n.zaiseki-box-d {\r\n  padding:3px;\r\n  background-color:#4CAF50 !important;\n}\n.riseki-box-d {\r\n  padding:3Px;\r\n  background-color:#FF9800 !important;\n}\n.taiseki-box-d {\r\n  padding:3px;\r\n  background-color:#E91E63 !important;\n}\n.zaiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #4CAF50 !important;\n}\n.riseki-list {\r\n  padding:3px;\r\n  color: #fff;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #FF9800 !important;\n}\n.taiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #E91E63 !important;\n}\n.zaiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.riseki-list:hover {\r\nopacity: 0.5 ;\n}\n.torikomi-list:hover {\r\nopacity: 0.5 ;\n}\n.renraku-list:hover {\r\nopacity: 0.5 ;\n}\n.taiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.grid-wrapper {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 1px;\n}\n.zero-badge-t, .first-badge-t, .second-badge-t, .third-badge-t {\r\n  /*\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  */\r\n  font-size: 16px !important;\r\n  font-weight: bold !important;\n}\n.zero-badge-t {\r\n  color: #34495e !important;\n}\n.first-badge-t {\r\n  color: #c0392b !important;\n}\n.second-badge-t {\r\n  color: #3F51B5 !important;\n}\n.third-badge-t {\r\n  color: #009688 !important;\n}\n.zaiseki-badge-t, .riseki-badge-t, .torikomi-badge-t, .renraku-badge-t, .taiseki-badge-t {\r\n  margin-right: 1px !important;\r\n  margin-left: 1px !important;\r\n  padding: 4px !important;\r\n  font-size: 18px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 6px #ddd;\r\n  white-space: nowrap;\n}\n.zaiseki-badge-t {\r\n  background-color: #4CAF50; \r\n  cursor: pointer;\n}\n.riseki-badge-t {\r\n  background-color: #FF9800; \r\n  cursor: pointer;\n}\n.torikomi-badge-t {\r\n  background-color: #2196F3; \r\n  cursor: pointer;\n}\n.renraku-badge-t {\r\n  background-color: #9C27B0; \r\n  cursor: pointer;\n}\n.taiseki-badge-t {\r\n  background-color: #E91E63; \r\n  cursor: pointer;\n}\n.fade-enter-active, .fade-leave-active {\r\n  transition: all 1.5s ease;\r\n  transform-origin: center top 0px;\n}\n.fade-enter, .fade-leave-to {\r\n    transform: matrix3d(1,0,0.00,0,0.00,0,1.00,0.008,0,-1,0,0,0,0,0,1);\r\n    opacity: 0;\n}\r\n\r\n \r\n", ""]);
+exports.push([module.i, "\n.container {\r\n  padding-top: 15px !important;\n}\n.container fluid fill-height  {\r\n  margin:  0 !important;\r\n  padding: 0 !important;\n}\n.container.grid-list-md .layout .flex {\r\n    padding: 1px !important;\n}\n.zaiseki-badge-tv, .riseki-badge-tv, .torikomi-badge-tv, .renraku-badge-tv, .taiseki-badge-tv {\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  font-size: 12px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  font-weight: normal !important;\n}\n.zaiseki-badge-tv {\r\n  background-color: #4CAF50; \r\n  cursor: pointer;\n}\n.riseki-badge-tv {\r\n  background-color: #FF9800; \r\n  cursor: pointer;\n}\n.taiseki-badge-tv {\r\n  background-color: #E91E63; \r\n  cursor: pointer;\n}\n.zero-badge, .first-badge, .second-badge, .third-badge {\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  font-size: 12px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  font-weight: normal !important;\n}\n.zero-badge {\r\n  background-color: #34495e !important;\n}\n.first-badge {\r\n  background-color: #c0392b !important;\n}\n.second-badge {\r\n  background-color: #3F51B5 !important;\n}\n.third-badge {\r\n  background-color: #009688 !important;\n}\n.zaiseki-box-d {\r\n  padding:3px;\r\n  background-color:#4CAF50 !important;\n}\n.riseki-box-d {\r\n  padding:3Px;\r\n  background-color:#FF9800 !important;\n}\n.taiseki-box-d {\r\n  padding:3px;\r\n  background-color:#E91E63 !important;\n}\n.zaiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #4CAF50 !important;\n}\n.riseki-list {\r\n  padding:3px;\r\n  color: #fff;\r\n  font-size: 30px;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #FF9800 !important;\n}\n.taiseki-list {\r\n  padding:3px;\r\n  font-size: 30px;\r\n  color: #fff;\r\n  text-align: center;\r\n  font-weight: bold; \r\n  cursor: pointer;\r\n  background-color: #E91E63 !important;\n}\n.zaiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.riseki-list:hover {\r\nopacity: 0.5 ;\n}\n.torikomi-list:hover {\r\nopacity: 0.5 ;\n}\n.renraku-list:hover {\r\nopacity: 0.5 ;\n}\n.taiseki-list:hover {\r\nopacity: 0.5 ;\n}\n.grid-wrapper {\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  grid-gap: 1px;\n}\n.zero-badge-t, .first-badge-t, .second-badge-t, .third-badge-t {\r\n  /*\r\n  padding: 3px 6px;\r\n  margin-right: 8px;\r\n  margin-left: 1px;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 3px #ddd;\r\n  white-space: nowrap;\r\n  */\r\n  font-size: 16px !important;\r\n  font-weight: bold !important;\n}\n.zero-badge-t {\r\n  color: #34495e !important;\n}\n.first-badge-t {\r\n  color: #c0392b !important;\n}\n.second-badge-t {\r\n  color: #3F51B5 !important;\n}\n.third-badge-t {\r\n  color: #009688 !important;\n}\n.zaiseki-badge-t, .riseki-badge-t, .torikomi-badge-t, .renraku-badge-t, .taiseki-badge-t {\r\n  margin-right: 1px !important;\r\n  margin-left: 1px !important;\r\n  padding: 4px !important;\r\n  font-size: 18px !important;\r\n  color: white;\r\n  border-radius: 6px;\r\n  box-shadow: 0 0 6px #ddd;\r\n  white-space: nowrap;\n}\n.zaiseki-badge-t {\r\n  background-color: #4CAF50; \r\n  cursor: pointer;\n}\n.riseki-badge-t {\r\n  background-color: #FF9800; \r\n  cursor: pointer;\n}\n.torikomi-badge-t {\r\n  background-color: #2196F3; \r\n  cursor: pointer;\n}\n.renraku-badge-t {\r\n  background-color: #9C27B0; \r\n  cursor: pointer;\n}\n.taiseki-badge-t {\r\n  background-color: #E91E63; \r\n  cursor: pointer;\n}\n.fade-enter-active, .fade-leave-active {\r\n  transition: all 1.5s ease;\r\n  transform-origin: center top 0px;\n}\n.fade-enter, .fade-leave-to {\r\n    transform: matrix3d(1,0,0.00,0,0.00,0,1.00,0.008,0,-1,0,0,0,0,0,1);\r\n    opacity: 0;\n}\r\n\r\n \r\n", ""]);
 
 
 /***/ }),
@@ -51326,13 +51311,15 @@ var render = function() {
       _c(
         "v-navigation-drawer",
         {
-          attrs: { absolute: "", bottom: "", temporar: "" },
-          model: {
-            value: _vm.navBar,
-            callback: function($$v) {
-              _vm.navBar = $$v
+          staticStyle: { "margin-top": "30px" },
+          attrs: { app: "", "mini-variant": _vm.mini },
+          on: {
+            "update:miniVariant": function($event) {
+              _vm.mini = $event
             },
-            expression: "navBar"
+            "update:mini-variant": function($event) {
+              _vm.mini = $event
+            }
           }
         },
         [
@@ -51340,6 +51327,33 @@ var render = function() {
             "v-list",
             { staticClass: "pt-0", attrs: { dense: "" } },
             [
+              _c(
+                "v-list-tile",
+                [
+                  _c(
+                    "v-list-tile-action",
+                    [
+                      _c(
+                        "v-icon",
+                        {
+                          on: {
+                            click: function($event) {
+                              $event.stopPropagation()
+                              _vm.mini = !_vm.mini
+                            }
+                          }
+                        },
+                        [_vm._v("home")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c("v-list-tile-title", [_vm._v("Home")])
+                ],
+                1
+              ),
+              _vm._v(" "),
               _c(
                 "v-list-tile",
                 [
@@ -51470,73 +51484,6 @@ var render = function() {
                       })
                     ],
                     2
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-toolbar",
-        {
-          attrs: {
-            dark: "",
-            color: "primary",
-            "clipped-left": "",
-            fixed: "",
-            app: ""
-          }
-        },
-        [
-          _c("v-toolbar-side-icon", {
-            on: {
-              click: function($event) {
-                $event.stopPropagation()
-                _vm.navBar = !_vm.navBar
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("v-toolbar-title", { staticClass: "white--text" }, [
-            _vm._v("Title")
-          ]),
-          _vm._v(" "),
-          _c("v-spacer"),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { attrs: { to: "/login" } },
-            [
-              _c(
-                "v-list-tile",
-                { attrs: { "color:white": "" } },
-                [
-                  _c(
-                    "v-list-tile-content",
-                    { attrs: { "color:white": "" } },
-                    [
-                      _c(
-                        "v-list-tile-title",
-                        { staticStyle: { color: "white" } },
-                        [_vm._v("LOGIN")]
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "v-list-tile-action",
-                    [
-                      _c("v-icon", { attrs: { "color:white": "" } }, [
-                        _vm._v("account_circle")
-                      ])
-                    ],
-                    1
                   )
                 ],
                 1
@@ -52517,7 +52464,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { staticStyle: { padding: "0" }, attrs: { "grid-list-md": "" } },
+    { staticStyle: { padding: "4px" }, attrs: { "grid-list-md": "" } },
     [
       _c(
         "v-layout",
@@ -52527,7 +52474,7 @@ var render = function() {
             "v-flex",
             {
               key: dashboarduser.id,
-              attrs: { xl3: "", lg4: "", md6: "", xs12: "" }
+              attrs: { xl4: "", lg4: "", md6: "", xs12: "" }
             },
             [
               _c(
@@ -97646,8 +97593,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\TC117041\Desktop\MES\resources\assets\js\app.js */"./resources/assets/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\TC117041\Desktop\MES\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\Users\yusuke\Desktop\mes\resources\assets\js\app.js */"./resources/assets/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\yusuke\Desktop\mes\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })
