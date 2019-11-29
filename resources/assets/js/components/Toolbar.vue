@@ -1,13 +1,13 @@
 <template>
 <div>
-  <v-navigation-drawer
- 
+  <v-navigation-drawer 
       app
-       :mini-variant.sync="mini"
-       style="margin-top:30px;"
+      :mini-variant.sync="mini"
+      class="deep-purple accent-4"
+      dark
+      permanent
     >
-      <v-list dense class="pt-0">
-
+      <v-list>
         <v-list-tile>
           <v-list-tile-action>
             <v-icon @click.stop="mini = !mini">home</v-icon>
@@ -90,9 +90,7 @@
 <script>
 
     export default {
-
         data() {
-
             return {
 
             admins: [
@@ -105,19 +103,14 @@
               ['Update', 'update'],
               ['Delete', 'delete']
             ],
-
             navBar:null,
             mini: true,
             }
-
         },
 
         created() {
-
             EventBus.$on('logout', () => {
-
                 User.logout()
-
             })
 
         }

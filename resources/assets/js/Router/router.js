@@ -3,12 +3,11 @@ import VueRouter from 'vue-router'
 import Login from '../login/Login'
 import SignUp from '../login/signup'
 import Logout from '../login/Logout'
-import dashBordUser from '../dashbord/DashBordComponent'
 import DashBordUserControl from '../dashbord/DashBordUserControl'
-import DashBordComponent from '../dashbord/UserModal'
-import DashBordUserControl2 from '../dashbord/DashBordUserControl2'
 import DashBordComponentTv from  '../dashbord/DashBordComponentTv'
 import DashBordComponentIn from '../dashbord/DashBordComponentIn'
+import LineSetting from '../admin/LineSetting'
+
 import TantouUser from '../dashbord/TantouUser'
 import DashBordTagForm from '../dashbord/DashBordTagForm'
 
@@ -23,7 +22,11 @@ const routes = [
     {path: '/logout', component: Logout},
     {path: '/dashboard', component: DashBordComponentTv},
     {path: '/TantouUser', component: TantouUser},
-    {path: '/tag'       , component: DashBordTagForm}
+    {path: '/tag'       , component: DashBordTagForm},
+    {path: '/setting'       , component: DashBordUserControl},
+    {path: '/linesetting'       , component: LineSetting}
+    
+    
 ]
 
 const router = new VueRouter({

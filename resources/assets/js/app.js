@@ -9,7 +9,18 @@ require('./bootstrap');
 window.Vue = require('vue');
 import Vue from 'vue'
 import Vuetify from 'vuetify'
+
 import router from './Router/router.js'
+
+import Widget from './components/Widget.vue';
+import SocialWidget from './components/SocialWidget.vue';
+import DataTable from './components/DataTable.vue';
+import TimeLine from './components/TimeLine.vue';
+import UserTreeView from './components/UserTreeView.vue';
+import Stepper from './components/Stepper.vue';
+import LocationStatistic from './components/statistics/LocationStatistic.vue';
+import SiteViewStatistic from './components/statistics/SiteViewStatistic.vue';
+import TotalEarningsStatistic from './components/statistics/TotalEarningsStatistic.vue';
 
 
 Vue.use(Vuetify)
@@ -32,6 +43,17 @@ window.EventBus = new Vue();
 
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+
+Vue.component('widget', Widget);
+Vue.component('social-widget', SocialWidget);
+Vue.component('data-table', DataTable);
+Vue.component('time-line', TimeLine);
+Vue.component('user-tree-view', UserTreeView);
+Vue.component('stepper', Stepper);
+
+Vue.component('location-statistic', LocationStatistic);
+Vue.component('site-view-statistic', SiteViewStatistic);
+Vue.component('total-earnings-statistic', TotalEarningsStatistic);
 
 Vue.component('AppHome', require('./components/AppHome.vue').default);
 
