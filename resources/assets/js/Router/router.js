@@ -4,7 +4,6 @@ import Login from '../login/Login'
 import SignUp from '../login/signup'
 import Logout from '../login/Logout'
 import DashBordUserControl from '../dashbord/DashBordUserControl'
-import DashBordComponentTv from  '../dashbord/DashBordComponentTv'
 import DashBordComponentIn from '../dashbord/DashBordComponentIn'
 import LineSetting from '../admin/LineSetting'
 
@@ -20,7 +19,6 @@ const routes = [
     {path: '/signup', component: SignUp},
     {path: '/', component: DashBordComponentIn},
     {path: '/logout', component: Logout},
-    {path: '/dashboard', component: DashBordComponentTv},
     {path: '/TantouUser', component: TantouUser},
     {path: '/tag'       , component: DashBordTagForm},
     {path: '/setting'       , component: DashBordUserControl},

@@ -1,7 +1,7 @@
 <template>
   <v-card class="card">
     <v-card-text class="pa-3">
-      <line-chart :data="data" xtitle="Time" ytitle="Site Views" :dataset="{borderWidth: 3}"/>
+      <!-- <line-chart :data="data" xtitle="Time" ytitle="Site Views" :dataset="{borderWidth: 3}"/> -->
     </v-card-text>
   </v-card>
 </template>

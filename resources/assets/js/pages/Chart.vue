@@ -13,20 +13,20 @@
       </v-flex>
 
       <v-flex d-flex lg4 sm6 xs12>
-        <area-chart :data="areaStatisticData" xtitle="Time" ytitle="Population" :dataset="{borderWidth: 3}"></area-chart>
+        <!-- <area-chart :data="areaStatisticData" xtitle="Time" ytitle="Population" :dataset="{borderWidth: 3}"></area-chart> -->
       </v-flex>
       <v-flex d-flex lg4 sm6 xs12>
-        <scatter-chart :data="scatterStatisticData" xtitle="Size" :colors="['#107250']" ytitle="Population"></scatter-chart>
+        <!-- <scatter-chart :data="scatterStatisticData" xtitle="Size" :colors="['#107250']" ytitle="Population"></scatter-chart> -->
       </v-flex>
       <v-flex d-flex lg4 sm6 xs12>
-        <line-chart :data="lineChartData" :colors="['#8b47d8']" xtitle="Time" ytitle="Population" :dataset="{borderWidth: 3}"></line-chart>
+        <!-- <line-chart :data="lineChartData" :colors="['#8b47d8']" xtitle="Time" ytitle="Population" :dataset="{borderWidth: 3}"></line-chart> -->
       </v-flex>
 
       <v-flex d-flex lg4 sm6 xs12>
-        <line-chart :data="lineChartData" :colors="['#47d8a5']" :curve="false" xtitle="Time" ytitle="Population" :dataset="{borderWidth: 3}"></line-chart>
+        <!-- <line-chart :data="lineChartData" :colors="['#47d8a5']" :curve="false" xtitle="Time" ytitle="Population" :dataset="{borderWidth: 3}"></line-chart> -->
       </v-flex>
       <v-flex d-flex lg4 sm6 xs12>
-        <pie-chart :data="data" legend="bottom" :donut="true"></pie-chart>
+        <!-- <pie-chart :data="data" legend="bottom" :donut="true"></pie-chart>-->
       </v-flex>
       <v-flex d-flex lg4 sm6 xs12>
         <line-chart :data="linearMultipleChartdata" />

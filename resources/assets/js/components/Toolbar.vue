@@ -8,29 +8,6 @@
       permanent
     >
       <v-list>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon @click.stop="mini = !mini">home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Home</v-list-tile-title>
-        </v-list-tile>
-
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon>home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Home</v-list-tile-title>
-        </v-list-tile>
-
-        <v-list-group
-          prepend-icon="account_circle"
-          value="true"
-        >
-          <template v-slot:activator>
-            <v-list-tile>
-              <v-list-tile-title>Users</v-list-tile-title>
-            </v-list-tile>
-          </template>
           <v-list-group
             no-action
             sub-group
@@ -45,7 +22,6 @@
             <v-list-tile
               v-for="(admin, i) in admins"
               :key="i"
-    
             >
               <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
               <v-list-tile-action>
@@ -74,8 +50,15 @@
               </v-list-tile-action>
             </v-list-tile>
           </v-list-group>
-        </v-list-group>
+
       </v-list>
+      <v-list-tile>
+          <v-list-tile-title></v-list-tile-title>
+          <v-list-tile-action>
+            <v-icon @click.stop="mini = !mini">chevron_left</v-icon>
+          </v-list-tile-action>
+      </v-list-tile>
+       
     </v-navigation-drawer>
 
     
@@ -90,6 +73,7 @@
 <script>
 
     export default {
+        props: ['mini'],
         data() {
             return {
 
@@ -104,7 +88,7 @@
               ['Delete', 'delete']
             ],
             navBar:null,
-            mini: true,
+            //mini: true,
             }
         },
 

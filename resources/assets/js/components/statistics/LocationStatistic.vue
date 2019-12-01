@@ -1,7 +1,7 @@
 <template>
   <v-card class="card">
     <v-card-text class="pa-2">
-      <pie-chart :data="data" legend="right" :donut="true"></pie-chart>
+      <!-- <pie-chart :data="data" legend="right" :donut="true"></pie-chart>-->
     </v-card-text>
   </v-card>
 </template>

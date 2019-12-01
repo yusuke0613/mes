@@ -22,16 +22,20 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
+        "vue-loader": "^15.7.2",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "@plutonium-js/vue-stagger": "^1.0.2",
-        "firebase": "^6.6.2",
+        "chart.js": "^2.9.3",
+        "install": "^0.13.0",
         "laravel-echo": "^1.5.4",
         "material-design-icons-iconfont": "^5.0.1",
         "mavon-editor": "^2.7.5",
+        "npm": "^6.13.1",
+        "or": "^0.2.0",
         "pusher": "^2.2.2",
         "pusher-js": "^5.0.1",
+        "vue-chartjs": "^3.5.0",
         "vue-router": "^3.1.2",
         "vue-simplemde": "^1.0.0",
         "vuetify": "^1.5.18"

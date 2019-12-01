@@ -1,7 +1,7 @@
 <template>
   <v-card class="card">
     <v-card-text class="pa-1">
-      <area-chart :data="data" :dataset="{borderWidth: 3}" :colors="['#b00']"  ytitle="Earnings" ></area-chart>
+     <!--  <area-chart :data="data" :dataset="{borderWidth: 3}" :colors="['#b00']"  ytitle="Earnings" ></area-chart> -->
     </v-card-text>
   </v-card>
 </template>

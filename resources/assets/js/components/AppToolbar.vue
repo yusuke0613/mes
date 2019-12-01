@@ -6,23 +6,8 @@
     prominent
     style="background: #eee;"
   >
-    <div class="v-toolbar-title">
-      <v-toolbar-title
-        class="tertiary--text font-weight-light"
-      >
-        <v-btn
-          v-if="responsive"
-          class="default v-btn--simple"
-          dark
-          icon
-          @click.stop="onClickBtn"
-        >
-          <v-icon>business</v-icon>
-        </v-btn>
-        {{ title }}
-      </v-toolbar-title>
-    </div>
-
+    <v-icon @click.stop="mini = !mini">list</v-icon>
+    
     <v-spacer />
 
     <v-toolbar-items>
@@ -31,14 +16,6 @@
         layout
         py-2
       >
-        <router-link
-          v-ripple
-          class="toolbar-items"
-          to="/"
-        >
-          <v-icon color="tertiary">chat</v-icon>
-        </router-link>
-        <v-spacer />
         <v-menu
           bottom
           left
@@ -78,12 +55,7 @@
           </v-card>
 
         </v-menu>
-        
-        <router-link v-ripple class="toolbar-items" to="/user-profile"
-        >
-          <v-icon color="tertiary">business</v-icon>
-        </router-link>
-        
+
       </v-flex>
     </v-toolbar-items>
   </v-toolbar>
