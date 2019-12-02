@@ -19,7 +19,7 @@ class LineMasterResource extends JsonResource
             'lineCode'      => $this->lineCode,
             'ratio'         => $this->ratio,
             'priorityFlag'  => $this->priorityFlag,
-            'updated_at'    => $this->updated_at
+            'updated_at'    => $this->UPDATED_AT
             //'user' => $this->user->name,
         ];
     }

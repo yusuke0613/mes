@@ -28,8 +28,10 @@ Route::patch('/hinomoto'       , 'DashBoardUserController@hinomoto');
 Route::patch('/server'        , 'DashBoardUserController@server');
 
 
-Route::apiResource('/linemaster', 'LineMasterController');
-
+Route::apiResource('/linemaster'    , 'LineMasterController');
+Route::apiResource('/processmaster' , 'ProcessMasterController');
+Route::apiResource('/hostmaster'    , 'HostMasterController');
+Route::apiResource('/workermaster'  , 'WorkerMasterController');
 
 Route::patch('/zaiseki/{id}'  , 'DashBoardUserController@zaiseki');
 Route::patch('/taiseki/{id}'  , 'DashBoardUserController@taiseki');
