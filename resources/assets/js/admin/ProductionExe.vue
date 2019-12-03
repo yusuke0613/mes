@@ -1,50 +1,51 @@
  <template>
-      <v-flex>
-        <v-card xs12 class="m-3 px-3">
-          <v-card-title class="title">
-            生産実行
-            <v-btn flat small fab @click="dialogOpen(props.item)"><v-icon color="orange ">add_circle_outline</v-icon></v-btn>
-            <v-spacer></v-spacer>
-            <v-text-field
-              v-model="search"
-              prepend-icon="search"
-              label="Search"
-              single-line
-              hide-details
-              clearable
-            ></v-text-field>
-          </v-card-title>
+    <v-layout row wrap>  
+      <v-flex xs4 style="margin:5px !important;">
+        <v-select
+          :items="orderCodes"
+          label="部門コード"
+          @change="filterLineCode"
+        ></v-select>
+      </v-flex>
+       <v-flex xs4 style="margin:5px !important;">
+        <v-select
+          :items="lineCodes"
+          label="ラインID"
+          @change="filterLineCode"
+        ></v-select>
+      </v-flex>
 
-          <v-data-table
-            :headers="headers"
-            :items="dashboardusers"
-            :pagination.sync="pagination"
-            :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'
-            :search="search"
-            style="white-space: nowrap; padding:0 !important; font-size:16px !important;"
-          >
-            <template slot="items" slot-scope="props">
-              <tr style="white-space: nowrap; padding:0;">
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" ><a @click="updateUserModal(props.item)">{{props.item['id']}}</a></td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['lineCode']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['partNo']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['planQty']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['delayQty']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['packingQty']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['orderQty']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['planDate'] | moment}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['status']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['startDate']}}</td>
-                <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['endDate']}}</td>
-                <!--
-                  <template v-for="n in (headers.length - 1)">
-                    <td :class="'text-xs-' + headers[n].align" style="white-space: nowrap; padding:0;" v-text="props.item[headers[n].value]"></td>
-                  </template>
-                -->
-              </tr>
-            </template>
-          </v-data-table>
-        </v-card>
+      <v-flex xs12>
+        <v-data-table
+          :headers="headers"
+          :items="dashboardusers"
+          :pagination.sync="pagination"
+          :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'
+
+          style="white-space: nowrap; padding:0 !important; font-size:16px !important;"
+        >
+          <template slot="items" slot-scope="props">
+            <tr style="white-space: nowrap; padding:0;">
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" ><a @click="updateUserModal(props.item)">{{props.item['id']}}</a></td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['lineCode']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['partNo']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['planQty']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['delayQty']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['packingQty']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['orderQty']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['planDate'] | moment}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['status']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['startDate']}}</td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['endDate']}}</td>
+              <!--
+                <template v-for="n in (headers.length - 1)">
+                  <td :class="'text-xs-' + headers[n].align" style="white-space: nowrap; padding:0;" v-text="props.item[headers[n].value]"></td>
+                </template>
+              -->
+            </tr>
+          </template>
+        </v-data-table>
+      </v-flex>
         
 
         <v-dialog v-model="showUpdateUserModal" fullscreen hide-overlay transition="dialog-bottom-transition">
@@ -94,7 +95,7 @@
             </v-container>
           </v-card>
         </v-dialog>
-        </v-flex>
+    </v-layout>
     </template>
 <script>
   import VueQrcode from "@chenfengyuan/vue-qrcode";
@@ -111,6 +112,13 @@
         },
         data() {
             return {
+                filters: {
+                  search: '',
+                  orderCode: '',
+                },
+
+                orderCodes: ['A1513'],
+                lineCodes: ['A001'],
                 dashboardusers: [],
                 dashboarduser: [{ id: 1, name: 'aのitem' },{ id: 2, name: 'bのitem' }],
                 headers: [
@@ -131,12 +139,9 @@
                   {text: '終了',align: 'center', value: 'endDate'},
                   
                 ],
-                search: '',
                 showModal2: false,
                 pagination: { sortBy: 'name', descending: false, },
-                setsearch(id) {
-                  this.search = id
-                },
+        
                 postItem: { id: 1, displayId:'1', name: 'aのitem' },
                 showUpdateUserModal: false,
                 valid: false,
@@ -214,7 +219,6 @@
           },
 
           updateUserModal(user) {
-            alert(user);
             this.postItem = user;
             this.id          = this.postItem["id"];
             this.lineCode    = this.postItem["lineCode"];
@@ -225,7 +229,50 @@
           closeUserModal() {
             this.showUpdateUserModal = false;
           },
-        }
+
+          customFilter(items, filters, filter, headers) {
+            // Init the filter class.
+            const cf = new this.$MultiFilters(items, filters, filter, headers);
+
+            cf.registerFilter('search', function (searchWord, items) {
+              if (searchWord.trim() === '') return items;
+
+              return items.filter(item => {
+                return item.name.toLowerCase().includes(searchWord.toLowerCase());
+              }, searchWord);
+
+            });
+
+
+            cf.registerFilter('lineCode', function (lineCode, items) {
+              if (lineCode.trim() === '') return items;
+
+              return items.filter(item => {
+                return item.lineCode.toLowerCase() === lineCode.toLowerCase();
+              }, lineCode);
+
+            });
+
+            // Its time to run all created filters.
+            // Will be executed in the order thay were defined.
+            return cf.runFilters();
+          },
+
+
+          /**
+           * Handler when user input something at the "Filter" text field.
+           */
+          filterSearch(val) {
+            this.filters = this.$MultiFilters.updateFilters(this.filters, {search: val});
+          },
+
+          /**
+           * Handler when user  select some author at the "Author" select.
+           */
+          filterLineCode(val) {
+            this.filters = this.$MultiFilters.updateFilters(this.filters, {lineCode: val});
+          },
+      }
     }
 </script>
 

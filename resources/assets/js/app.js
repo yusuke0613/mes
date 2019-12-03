@@ -21,10 +21,11 @@ import Stepper from './components/Stepper.vue';
 import LocationStatistic from './components/statistics/LocationStatistic.vue';
 import SiteViewStatistic from './components/statistics/SiteViewStatistic.vue';
 import TotalEarningsStatistic from './components/statistics/TotalEarningsStatistic.vue';
-
+import MultiFiltersPlugin from '../../../plugins/MultiFilters' 
 
 Vue.use(Vuetify)
 Vue.use(window.puStagger)
+Vue.use(MultiFiltersPlugin);
 
 import '../../../node_modules/vuetify/dist/vuetify.css'
 
