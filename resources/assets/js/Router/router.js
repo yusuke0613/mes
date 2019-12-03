@@ -11,6 +11,7 @@ import ProcessSetting   from '../admin/ProcessSetting'
 import HostSetting from '../admin/HostSetting'
 import DashBordTagForm from '../dashbord/DashBordTagForm'
 
+import ProductionExe   from '../admin/ProductionExe'
 
 
 Vue.use(VueRouter)
@@ -27,6 +28,7 @@ const routes = [
     {path: '/workersetting'     , component: WorkerSetting},
     {path: '/processsetting'    , component: ProcessSetting},
     {path: '/hostsetting'       , component: HostSetting},
+    {path: '/productionexe'       , component: ProductionExe},
     
     
 ]

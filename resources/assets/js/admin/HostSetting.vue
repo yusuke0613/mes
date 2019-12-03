@@ -27,8 +27,6 @@
             :search="search"
             class="elevation-0 p-1"
           >
-            <v-progress-linear slot="progress" color="blue" indeterminate></v-progress-linear>
-
             <template slot="items" slot-scope="props">
               <tr>
                 <td class="text-xs-center" xs1>{{ (props.index + 1) + (pagination.page - 1) * pagination.rowsPerPage }}</td>

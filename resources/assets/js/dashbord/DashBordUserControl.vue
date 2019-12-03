@@ -257,6 +257,7 @@
           },
 
           updateUserModal(user) {
+            alert(user);
             this.postItem = user;
             this.displayId   = this.postItem["displayId"];
             this.displayName = this.postItem["displayName"];

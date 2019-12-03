@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Model\ProcessMaster;
+use App\Model\ProductionExe;
 use App\Http\Resources\ProductionExeResource;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -25,7 +25,7 @@ class ProductionExeController extends Controller
      */
     public function index()
     {
-        return ProcessMasterResource::collection(ProcessMaster::get());
+        return ProductionExeResource::collection(ProductionExe::get());
     }
 
     /**
@@ -36,7 +36,7 @@ class ProductionExeController extends Controller
      */
     public function store(Request $request)
     {
-        $lineMaster = new ProcessMaster();
+        $lineMaster = new ProductionExe();
         $lineMaster->orderCode     = $request->orderCode;
         $lineMaster->lineCode      = $request->lineCode;
         $lineMaster->ratio         = $request->ratio;
@@ -55,7 +55,7 @@ class ProductionExeController extends Controller
      */
     public function show($comentNum)
     {
-        return  ProcessMaster::find($comentNum);
+        return  ProductionExe::find($comentNum);
     }
 
 
@@ -67,7 +67,7 @@ class ProductionExeController extends Controller
      */
     public function tag($request)
     {
-        return  ProcessMaster::find($request);
+        return  ProductionExe::find($request);
     }
 
 
@@ -83,7 +83,7 @@ class ProductionExeController extends Controller
         
         DB::beginTransaction();
         //broadcast(new dashBordEvent($request->all()))->toOthers();
-        ProcessMaster::where('id', $request->id)->update([
+        ProductionExe::where('id', $request->id)->update([
             'displayId'      =>$request->displayId,
             'displayName'    =>$request->displayName,
             'status'         =>$request->status,

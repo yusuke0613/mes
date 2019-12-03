@@ -8,8 +8,6 @@
       permanent
     >
       <v-list style="padding: 0">
-
-
           <v-list-group
             prepend-icon="access_alarm"
           >
@@ -112,7 +110,7 @@
 
             admins: [
                     ['Production Plan', 'donut_large', '/tag'],
-                    ['Production Exe' , 'donut_large', '/linesetting']
+                    ['Production Exe' , 'donut_large', '/productionexe']
                   ],
             clients: [
               ['Throw'          , 'donut_large'],

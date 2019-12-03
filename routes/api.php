@@ -20,6 +20,9 @@ Route::apiResource('/comment', 'CommentController');
 Route::apiResource('/tantouUser', 'TantouUserController');
 Route::apiResource('/tantou', 'TantouController');
 
+Route::apiResource('/Productionexe', 'ProductionExeController');
+
+
 Route::get('dashboarduser/tag/{comentNum}', 'DashBoardUserController@tag');
 Route::patch('/gomi'          , 'DashBoardUserController@gomi');
 Route::patch('/souzi'         , 'DashBoardUserController@souzi');
