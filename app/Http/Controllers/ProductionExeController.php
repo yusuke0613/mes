@@ -78,7 +78,7 @@ class ProductionExeController extends Controller
      * @param  \App\Model\ProcessMaster  $dashBordUser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DashBoardUser $dashBordUser)
+    public function update(Request $request, ProductionExe $productionExe)
     {
         
         DB::beginTransaction();

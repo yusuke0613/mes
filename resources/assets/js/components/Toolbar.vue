@@ -3,7 +3,7 @@
   <v-navigation-drawer 
       app
       :mini-variant.sync="mini"
-      class="deep-purple accent-4"
+      style="background-color:#0D47A1;"
       dark
       permanent
     >
@@ -13,7 +13,7 @@
           >
             <template v-slot:activator>
               <v-list-tile>
-                <v-list-tile-title>DashBoard</v-list-tile-title>
+                <v-list-tile-title>ダッシュボード</v-list-tile-title>
               </v-list-tile>
             </template>
 
@@ -33,7 +33,7 @@
           >
             <template v-slot:activator>
               <v-list-tile>
-                <v-list-tile-title>Admin</v-list-tile-title>
+                <v-list-tile-title>管理者</v-list-tile-title>
               </v-list-tile>
             </template>
 
@@ -52,7 +52,7 @@
           >
             <template v-slot:activator>
               <v-list-tile>
-                <v-list-tile-title>Client</v-list-tile-title>
+                <v-list-tile-title>作業者</v-list-tile-title>
               </v-list-tile>
             </template>
             <v-list-tile
@@ -72,7 +72,7 @@
           >
             <template v-slot:activator>
               <v-list-tile>
-                <v-list-tile-title>Setting</v-list-tile-title>
+                <v-list-tile-title>設定</v-list-tile-title>
               </v-list-tile>
             </template>
 
@@ -105,22 +105,21 @@
         data() {
             return {
             dashBoards: [
-                    ['Line Board', 'donut_large', '/'],
+                    ['進捗画面', 'donut_large', '/'],
                   ],
 
             admins: [
-                    ['Production Plan', 'donut_large', '/tag'],
-                    ['Production Exe' , 'donut_large', '/productionexe']
+                    ['製造実行' , 'donut_large', '/productionexe']
                   ],
             clients: [
-              ['Throw'          , 'donut_large'],
-              ['Interruption'   , 'donut_large']
+              ['投入画面'          , 'donut_large'],
+              ['作業中断'   , 'donut_large']
             ],
             settings: [
-              ['LineSetting'   , 'donut_large', '/linesetting'],
-              ['HostSetting'   , 'donut_large', '/hostsetting'],
-              ['ProcessSetting', 'donut_large', '/processsetting'],
-              ['WorkerSettig'  , 'donut_large', '/workersetting']
+              ['ライン設定'  , 'donut_large', '/linesetting'],
+              ['端末設定'    , 'donut_large', '/hostsetting'],
+              ['工程設定'　  , 'donut_large', '/processsetting'],
+              ['作業者設定'  , 'donut_large', '/workersetting']
             ],
             navBar:null,
             //mini: true,

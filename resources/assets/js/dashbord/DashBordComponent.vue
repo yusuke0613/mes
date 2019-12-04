@@ -210,6 +210,14 @@
       </v-card>
   </v-dialog>
 
+   <v-dialog 
+      v-model="kumiki" 
+      >
+        <v-img
+          src='/001.JPG'
+          style ="background-color:rgba(255,255,255,0.9) !important"
+        ></v-img>
+    </v-dialog>
 
   </v-container>  
 </template>
@@ -218,6 +226,7 @@
     export default {
         data() {
             return {
+                kumiki:false,
                 dashboardusers: {},
                 comments:[],
                 dashboarduser: [{ id: 1, name: 'aのitem' },{ id: 2, name: 'bのitem' }],

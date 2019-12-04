@@ -20,6 +20,8 @@ Route::apiResource('/comment', 'CommentController');
 Route::apiResource('/tantouUser', 'TantouUserController');
 Route::apiResource('/tantou', 'TantouController');
 
+
+Route::apiResource('/Partstruct', 'PartStructController');
 Route::apiResource('/Productionexe', 'ProductionExeController');
 
 

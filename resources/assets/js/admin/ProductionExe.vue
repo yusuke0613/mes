@@ -1,18 +1,21 @@
  <template>
     <v-layout row wrap>  
-      <v-flex xs4 style="margin:5px !important;">
+      <v-flex xl3 lg3 md3 sm3 xs3 style="margin-left:50px !important;">
         <v-select
           :items="orderCodes"
           label="部門コード"
           @change="filterLineCode"
         ></v-select>
       </v-flex>
-       <v-flex xs4 style="margin:5px !important;">
+       <v-flex xl3 lg3 md3 sm3 xs3 style="margin-left:50px !important;">
         <v-select
           :items="lineCodes"
           label="ラインID"
           @change="filterLineCode"
         ></v-select>
+      </v-flex>
+      <v-flex xl3 lg3 md3 sm3 xs3 style="margin-left:50px !important;">
+      <v-btn color="green" style="font-size:20px;color:#fff" @click="openKmiki">印刷</v-btn>
       </v-flex>
 
       <v-flex xs12>
@@ -27,6 +30,13 @@
           <template slot="items" slot-scope="props">
             <tr style="white-space: nowrap; padding:0;">
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" ><a @click="updateUserModal(props.item)">{{props.item['id']}}</a></td>
+              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >
+                  <span v-if="props.item['status']==1"   class="zaiseki-badge">未実行</span>
+                  <span v-if="props.item['status']==2"   class="riseki-badge">実行中</span>
+                  <span v-if="props.item['status']==3"   class="torikomi-badge">実行済</span>
+                  <span v-if="props.item['status']==4"   class="renraku-badge">段取り</span>
+                  <span v-if="props.item['status']==5"   class="taiseki-badge"></span>
+              </td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['lineCode']}}</td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['partNo']}}</td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['planQty']}}</td>
@@ -34,7 +44,6 @@
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['packingQty']}}</td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['orderQty']}}</td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['planDate'] | moment}}</td>
-              <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['status']}}</td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['startDate']}}</td>
               <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['endDate']}}</td>
               <!--
@@ -50,50 +59,83 @@
 
         <v-dialog v-model="showUpdateUserModal" fullscreen hide-overlay transition="dialog-bottom-transition">
           <v-card>
-            <v-toolbar class="deep-purple accent-4">
+            <v-toolbar style="background-color:#0D47A1;">
               <v-btn icon dark @click="showUpdateUserModal = false">
                 <v-icon>clear</v-icon>
               </v-btn>
-              <v-toolbar-title style="color:#fff">User Update</v-toolbar-title>
+              <v-toolbar-title style="color:#fff">生産実行</v-toolbar-title>
               <div class="flex-grow-1"></div>
             </v-toolbar>
 
-
             <v-container>
                  <v-layout row wrap >
-                    <v-flex xl6 lg6 md6 sm6 xs6>
+                    <!--<v-flex xl6 lg6 md6 sm6 xs6>
                       <vue-qrcode v-if="targetText" :value="targetText" :options="option" tag="img"></vue-qrcode>
+                    </v-flex>-->
+
+                    <v-flex xl4 lg4 md4 sm4 xs4 style="">
+                      <v-text-field style="color" prepend-icon="location_on" label="ラインID" v-model="this.lineCode" disabled/>
                     </v-flex>
-                    <v-flex xl6 lg6 md6 sm6 xs6>
-                      <v-list two-line style=" ">
-                        <v-list-tile>
-                          <v-list-tile-action>
-                            <v-icon color="orange">location_on</v-icon>
-                          </v-list-tile-action>
 
-                          <v-list-tile-content>
-                            <v-list-tile-title style="color:black;">{{this.lineCode}}</v-list-tile-title>
-                            <v-list-tile-sub-title style="color:black;">ラインID</v-list-tile-sub-title>
-                          </v-list-tile-content>
-                        </v-list-tile>
+                    <v-flex xl4 lg4 md4 sm4 xs4 style="">
+                      <v-text-field prepend-icon="build" label="製品番号" v-model="this.partNo" disabled/>;   
+                    </v-flex>
 
-                        <v-divider inset></v-divider>
-                        <v-list-tile>
-                          <v-list-tile-action>
-                            <v-icon color="orange">phone</v-icon>
-                          </v-list-tile-action>
+                    <v-flex xl4 lg4 md4 sm4 xs4 style="text-align:center" >
+                      <v-btn color="green" style="font-size:20px;color:#fff" @click="openKmiki">組基表示</v-btn>
+                    </v-flex>
 
-                          <v-list-tile-content>
-                            <v-list-tile-title style="color:black;">{{this.partNo}}</v-list-tile-title>
-                            <v-list-tile-sub-title style="color:black;">製品</v-list-tile-sub-title>
-                          </v-list-tile-content>
-                        </v-list-tile>
+                    <v-flex xl12 lg12 md12 sm12 xs12>
+                      <v-btn xl4 lg4 md4 sm4 xs4 color="green" type="submit"  style="font-size:20px;color:#fff">開始</v-btn>
+                      <v-btn xl4 lg4 md4 sm4 xs4 color="red"   type="submit"  style="font-size:20px;color:#fff">終了</v-btn>
+                      <v-btn xl4 lg4 md4 sm4 xs4 color="orange" type="submit" style="font-size:20px;color:#fff">段取り</v-btn>
+                    </v-flex>
 
-                      </v-list>
+                    <v-flex xl5 lg5 md5 sm5 xs5　style="margin:20px;">
+                      <v-text>作業者</v-text>
+                      <v-data-table
+                        :headers="workeHeaders"
+                        :items="workerUsers"
+                        :pagination.sync="pagination"
+                        :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'
+                        :loading="loading"
+                        :search="search"
+                        class="elevation-0 p-1"
+                      >
+                        <template slot="items" slot-scope="props">
+                          <tr>
+                            <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['processID']}}</td>
+                            <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['workerID']}}</td>
+                          </tr>
+                        </template>
+                      </v-data-table>
+                    </v-flex>
+
+                    <v-flex xl5 lg5 md5 sm5 xs5 style="margin:20px;">
+                      <v-text>構成品</v-text>
+                      <v-data-table
+                        :headers="structHeaders"
+                        :items="Partstructs"
+                        :pagination.sync="pagination"
+                        :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'
+                        :loading="loading"
+                        :search="search"
+                        class="elevation-0 p-1"
+                      >
+                        <template slot="items" slot-scope="props">
+                          <tr>
+                            <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['id']}}</td>
+                            <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['childPartNo']}}</td>
+                          </tr>
+                        </template>
+                      </v-data-table>
                     </v-flex>
                  </v-layout>
             </v-container>
           </v-card>
+        </v-dialog>
+        <v-dialog  v-model="kumiki">
+          <v-img  height=100vh src='/001.JPG'  style ="background-color:rgba(255,255,255,0.9) !important"></v-img>
         </v-dialog>
     </v-layout>
     </template>
@@ -112,18 +154,21 @@
         },
         data() {
             return {
+                kumiki:false,
                 filters: {
                   search: '',
                   orderCode: '',
                 },
-
+                Partstructs:[],
                 orderCodes: ['A1513'],
                 lineCodes: ['A001'],
                 dashboardusers: [],
+                workerUsers: [],
                 dashboarduser: [{ id: 1, name: 'aのitem' },{ id: 2, name: 'bのitem' }],
                 headers: [
                   {text: 'ID', align: 'center', value: 'id'},
                   //{text: '順番', align: 'center', value: 'turnNo'},
+                  {text: 'ステータス',align: 'center', value: 'status'},
                   {text: 'ラインID',align: 'center', value: 'lineCode'},
                   {text: '品番', align: 'center', value: 'partNo'},
                   {text: '計画数',align: 'center', value: 'planQty'},
@@ -134,11 +179,23 @@
                   //{text: 'オーダ数+2',align: 'center', value: 'orderQty2'},
                   //{text: 'オーダ数+3',align: 'center', value: 'orderQty3'},
                   {text: '計画日',align: 'center', value: 'planDate'},
-                  {text: 'ステータス',align: 'center', value: 'status'},
                   {text: '開始',align: 'center', value: 'startDate'},
                   {text: '終了',align: 'center', value: 'endDate'},
                   
                 ],
+
+                structHeaders: [
+                  {text: 'ID', align: 'center', value: 'id'},
+                  {text: '構成品',align: 'center',value: 'childPartNo'},
+                  //{text: '親品番',align: 'center',value: 'parentPartNo'},
+                ],
+
+                workeHeaders: [
+                  {text: '工程ID',align: 'center',value: 'processID'},
+                  {text: '作業者ID',align: 'center',value: 'workerID'},
+                ],
+
+
                 showModal2: false,
                 pagination: { sortBy: 'name', descending: false, },
         
@@ -179,12 +236,30 @@
              this.getDashbordUser();
           })
           this.getDashbordUser();
+          this.getWorkerUser();
+          this.getPartstructr();
         },
 
         methods: {
            reload() {
             this.getDashbordUser()
            },
+
+           getWorkerUser() {
+             axios.get('/api/workermaster')
+            .then(res => this.workerUsers = res.data.data)
+            .catch(error => console.log(error.res.data))
+           },
+
+          getPartstructr() {
+             axios.get('/api/Partstruct')
+            .then(res => this.Partstructs = res.data.data)
+            .catch(error => console.log(error.res.data))
+           },
+
+          openKmiki() {
+            this.kumiki = true;
+          },
 
 
            updateUser (dashboarduser) {
@@ -211,6 +286,7 @@
               .catch(error => console.log(error.res))
               this.getDashbordUser();
           },
+
           getDashbordUser() {
              axios.get('/api/Productionexe')
             .then(res => this.dashboardusers = res.data.data)
@@ -287,52 +363,34 @@ table.v-table tbody td {
   font-size: 16px !important;
 }
 
-.green-box {
-  padding:5px;
-  background-color: #009688 !important;
+.zaiseki-badge, .riseki-badge, .torikomi-badge, .renraku-badge, .taiseki-badge {
+  margin-right: 2px !important;
+  margin-left: 2px !important;
+  font-size: 16px !important;
+  padding: 3px !important;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 0 0 3px #ddd;
+  white-space: nowrap;
 }
-
-.yerrow-box {
-  padding:5px;
-  background-color: #CDDC39 !important;
+.zaiseki-badge {
+  background-color: #4CAF50; 
+  cursor: pointer;
 }
-
-.red-box {
-  padding:5px;
-  background-color: #F44336 !important;
+.riseki-badge {
+  background-color: #FF9800; 
+  cursor: pointer;
 }
-
-.zero-box {
-  font-size:16px; 
-  padding: 1px; 
-  color:"white" !important;
+.torikomi-badge {
+  background-color: #2196F3; 
+  cursor: pointer;
 }
-
-.first-box {
-  font-size:16px; 
-  padding: 1px; 
-  color:rgb(198, 40, 40) !important;
+.renraku-badge {
+  background-color: #9C27B0; 
+  cursor: pointer;
 }
-.second-box {
-  font-size:16px; 
-  padding: 1px; 
-  color:rgb(40, 53, 147) !important;
+.taiseki-badge {
+  background-color: #E91E63; 
+  cursor: pointer;
 }
-
-.third-box {
-  font-size:16px; 
-  padding: 1px; 
-  color:rgb(46, 125, 50) !important;
-}
-
-.color-nomal {
-  font-size:12px;
-  color: #fff !important;
-}
-
-.color-orange {
-  font-size:12px;
-  color: orange !important;
-}
-
 </style>
