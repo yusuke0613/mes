@@ -18,6 +18,7 @@ class WorkerMasterResource extends JsonResource
             'lineCode'      => $this->lineCode,
             'processID'     => $this->processID,
             'workerID'      => $this->workerID,
+            'status'        => $this->status,
             'updated_at'    => $this->UPDATED_AT
             //'user' => $this->user->name,
         ];

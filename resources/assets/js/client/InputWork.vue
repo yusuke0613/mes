@@ -1,12 +1,5 @@
  <template>
     <v-layout row wrap>  
-
-      
-
-
-       <v-flex xl12 lg12 md12 sm12 xs12 style="">
-        <v-text-field id="lineId" style="color" prepend-icon="location_on" label="ラインID" v-model="this.lineCode" />
-      </v-flex>
       <v-flex xl12 lg12 md12 sm12 xs12 style="">
         <v-text-field style="color" prepend-icon="location_on" label="ユーザID" v-model="this.lineCode" />
       </v-flex>

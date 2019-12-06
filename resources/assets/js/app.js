@@ -22,6 +22,7 @@ import LocationStatistic from './components/statistics/LocationStatistic.vue';
 import SiteViewStatistic from './components/statistics/SiteViewStatistic.vue';
 import TotalEarningsStatistic from './components/statistics/TotalEarningsStatistic.vue';
 import MultiFiltersPlugin from '../../../plugins/MultiFilters' 
+import { VueSvgGauge } from 'vue-svg-gauge';
 
 Vue.use(Vuetify)
 Vue.use(window.puStagger)
@@ -51,6 +52,7 @@ Vue.component('data-table', DataTable);
 Vue.component('time-line', TimeLine);
 Vue.component('user-tree-view', UserTreeView);
 Vue.component('stepper', Stepper);
+Vue.component('VueSvgGauge', VueSvgGauge);
 
 Vue.component('location-statistic', LocationStatistic);
 Vue.component('site-view-statistic', SiteViewStatistic);

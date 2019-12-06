@@ -86,9 +86,10 @@
                     </v-flex>
 
                     <v-flex xl12 lg12 md12 sm12 xs12>
-                      <v-btn xl4 lg4 md4 sm4 xs4 color="green" type="submit"  style="font-size:20px;color:#fff">開始</v-btn>
-                      <v-btn xl4 lg4 md4 sm4 xs4 color="red"   type="submit"  style="font-size:20px;color:#fff">終了</v-btn>
-                      <v-btn xl4 lg4 md4 sm4 xs4 color="orange" type="submit" style="font-size:20px;color:#fff">段取り</v-btn>
+                      
+                      <v-btn xl4 lg4 md4 sm4 xs4 color="green"   style="font-size:20px;color:#fff" @click="updateStatus(2)">開始</v-btn>
+                      <v-btn xl4 lg4 md4 sm4 xs4 color="red"     style="font-size:20px;color:#fff" @click="updateStatus(3)">終了</v-btn>
+                      <v-btn xl4 lg4 md4 sm4 xs4 color="orange"  style="font-size:20px;color:#fff" @click="updateStatus(4)">段取り</v-btn>
                     </v-flex>
 
                     <v-flex xl5 lg5 md5 sm5 xs5　style="margin:20px;">
@@ -98,7 +99,6 @@
                         :items="workerUsers"
                         :pagination.sync="pagination"
                         :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'
-                        :loading="loading"
                         :search="search"
                         class="elevation-0 p-1"
                       >
@@ -106,6 +106,11 @@
                           <tr>
                             <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['processID']}}</td>
                             <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['workerID']}}</td>
+                             <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >
+                                <span v-if="props.item['status']==0"   class="zaiseki-badge">未着手</span>
+                                <span v-if="props.item['status']==1"   class="riseki-badge">着手中</span>
+                                <span v-if="props.item['status']==2"   class="torikomi-badge">着手済</span>
+                            </td>
                           </tr>
                         </template>
                       </v-data-table>
@@ -118,14 +123,16 @@
                         :items="Partstructs"
                         :pagination.sync="pagination"
                         :rows-per-page-items='[10,25,50,{"text":"All","value":-1}]'
-                        :loading="loading"
                         :search="search"
                         class="elevation-0 p-1"
                       >
                         <template slot="items" slot-scope="props">
                           <tr>
-                            <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['id']}}</td>
                             <td :class="'text-xs-center'" style="white-space: nowrap; padding:0;" >{{props.item['childPartNo']}}</td>
+                            <td :class="'text-xs-center'" style="white-space: nowrap; padding:0; text-align: center;" >
+                                <span v-if="props.item['status']==0"   class="torikomi-badge">未投入</span>
+                                <span v-if="props.item['status']==1"   class="riseki-badge">投入済</span>
+                            </td>
                           </tr>
                         </template>
                       </v-data-table>
@@ -181,18 +188,19 @@
                   {text: '計画日',align: 'center', value: 'planDate'},
                   {text: '開始',align: 'center', value: 'startDate'},
                   {text: '終了',align: 'center', value: 'endDate'},
-                  
                 ],
 
                 structHeaders: [
-                  {text: 'ID', align: 'center', value: 'id'},
-                  {text: '構成品',align: 'center',value: 'childPartNo'},
+                  //{text: 'ID', align: 'center', value: 'id'},
+                  {text: '構成品'   ,align: 'center',value: 'childPartNo'},
+                  {text: '状況'　　　,align: 'center',value: 'status'},
                   //{text: '親品番',align: 'center',value: 'parentPartNo'},
                 ],
 
                 workeHeaders: [
-                  {text: '工程ID',align: 'center',value: 'processID'},
-                  {text: '作業者ID',align: 'center',value: 'workerID'},
+                  {text: '工程ID'　　,align: 'center',value: 'processID'},
+                  {text: '作業者ID'　,align: 'center',value: 'workerID'},
+                  {text: '状況'　　　,align: 'center',value: 'status'},
                 ],
 
 
@@ -261,24 +269,17 @@
             this.kumiki = true;
           },
 
-
-           updateUser (dashboarduser) {
-            var status = dashboarduser.status;
-    
-            if(dashboarduser.status == 2) {
-              status = 0;
-            } else {
-              status++;
-            }
+          updateStatus(status) {
+            var status = status;
             const userProfile = {
-              locationId:dashboarduser.locationId,
-              location:dashboarduser.location,
-              id:dashboarduser.id,
+              id: this.id ,
               status:status
             }
           
             this.update(userProfile)
           },
+
+
 
           update(userProfile) {
               axios.patch(`/api/Productionexe/${userProfile.id}`, userProfile)
@@ -299,7 +300,6 @@
             this.id          = this.postItem["id"];
             this.lineCode    = this.postItem["lineCode"];
             this.partNo      = this.postItem["partNo"];
-      
             this.showUpdateUserModal= true;
           },
           closeUserModal() {
@@ -372,21 +372,22 @@ table.v-table tbody td {
   border-radius: 6px;
   box-shadow: 0 0 3px #ddd;
   white-space: nowrap;
+  text-align: center;
 }
 .zaiseki-badge {
-  background-color: #4CAF50; 
+  background-color: blue; 
   cursor: pointer;
 }
 .riseki-badge {
-  background-color: #FF9800; 
+  background-color: green; 
   cursor: pointer;
 }
 .torikomi-badge {
-  background-color: #2196F3; 
+  background-color: red; 
   cursor: pointer;
 }
 .renraku-badge {
-  background-color: #9C27B0; 
+  background-color: orange; 
   cursor: pointer;
 }
 .taiseki-badge {

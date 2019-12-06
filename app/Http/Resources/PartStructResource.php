@@ -17,6 +17,7 @@ class PartStructResource extends JsonResource
             'id'            => $this->ID,
             'parentPartNo'  => $this->parentPartNo,
             'childPartNo'   => $this->childPartNo,
+            'status'        => $this->status,
             //'user' => $this->user->name,
         ];
     }

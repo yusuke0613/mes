@@ -7,6 +7,7 @@ use App\Model\ProductionExe;
 use App\Http\Resources\ProductionExeResource;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use App\Events\DashBordEvent;
 
 class ProductionExeController extends Controller
 {
@@ -83,29 +84,30 @@ class ProductionExeController extends Controller
         
         DB::beginTransaction();
         //broadcast(new dashBordEvent($request->all()))->toOthers();
-        ProductionExe::where('id', $request->id)->update([
-            'displayId'      =>$request->displayId,
-            'displayName'    =>$request->displayName,
-            'status'         =>$request->status,
-            'firstName'      =>$request->firstName,
-            'lastName'       =>$request->lastName,
-            'rankNo'         =>$request->rankNo,
-            'rankName'       =>$request->rankName,
-            'phoneNo'        =>$request->phoneNo,
-            'belongsId'      =>$request->belongsId,
-            'belongsName'    =>$request->belongsName,
-            'mail'           =>$request->mail,
-            'locationId'     =>$request->locationId,
-            'location'       =>$request->location,
-            'locationPhon'   =>$request->locationPhon,
-            'comment'        =>$request->comment,
-            'comentNum'      =>$request->comentNum,
-            'gomiFlag'       =>$request->gomiFlag,
-            'souziFlag'      =>$request->souziFlag,
-            'seisouFlag'     =>$request->seisouFlag,
-            'hinomotoFlag'   =>$request->hinomotoFlag,
-            'serverFlag'     =>$request->serverFlag,
+        if ($request->status == 2) {
+            ProductionExe::where('id', $request->id)->update([
+                'ID'      =>$request->id,
+                'status'  =>$request->status,
+                'startDate' =>date("Y/m/d H:i:s")
             ]);
+        } 
+
+        if ($request->status == 3) {
+            ProductionExe::where('id', $request->id)->update([
+                'ID'        =>$request->id,
+                'status'    =>$request->status,
+                'endDate' =>date("Y/m/d H:i:s")
+            ]);
+        } 
+
+        if ($request->status != 2 || $request->status != 3) {
+            ProductionExe::where('id', $request->id)->update([
+                'ID'      =>$request->id,
+                'status'  =>$request->status,
+                
+            ]);
+        } 
+      
         event(new dashBordEvent($request->all()));
         DB::commit();
         return response($request, Response::HTTP_ACCEPTED);
