@@ -1,3 +1,4 @@
+<!--
 <script>
 import { HorizontalBar } from 'vue-chartjs'
 

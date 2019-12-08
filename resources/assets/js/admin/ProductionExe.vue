@@ -15,7 +15,7 @@
         ></v-select>
       </v-flex>
       <v-flex xl3 lg3 md3 sm3 xs3 style="margin-left:50px !important;">
-      <v-btn color="green" style="font-size:20px;color:#fff" @click="openKmiki">印刷</v-btn>
+      <v-btn color="green" style="font-size:20px;color:#fff" @click="cargarPdf">印刷</v-btn>
       </v-flex>
 
       <v-flex xs12>
@@ -166,6 +166,7 @@
                   search: '',
                   orderCode: '',
                 },
+                search:"",
                 Partstructs:[],
                 orderCodes: ['A1513'],
                 lineCodes: ['A001'],
@@ -249,6 +250,10 @@
         },
 
         methods: {
+           cargarPdf(){
+              window.open('http://localhost:8000/api/Productionexe/pdf','_blank');
+           },
+
            reload() {
             this.getDashbordUser()
            },

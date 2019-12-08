@@ -8,6 +8,7 @@ use App\Http\Resources\ProductionExeResource;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Events\DashBordEvent;
+use PDF;
 
 class ProductionExeController extends Controller
 {
@@ -27,6 +28,19 @@ class ProductionExeController extends Controller
     public function index()
     {
         return ProductionExeResource::collection(ProductionExe::get());
+    }
+
+    public function listPdf() {
+        
+        $data = ProductionExeResource::collection(ProductionExe::get());
+        $cont = ProductionExe::count();
+
+        $pdf = PDF::loadView('pdf.articulospdf',['articulos'=>$data,'cont'=>$cont]);
+        return $pdf->download('articulos.pdf');
+        
+      // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
+
+    	//return $pdf->stream();
     }
 
     /**

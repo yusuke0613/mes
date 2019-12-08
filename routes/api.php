@@ -23,6 +23,7 @@ Route::apiResource('/tantou', 'TantouController');
 
 Route::apiResource('/Partstruct', 'PartStructController');
 Route::apiResource('/Productionexe', 'ProductionExeController');
+Route::get('/Productionexe/pdf', 'ProductionExeController@listPdf');
 
 
 Route::get('dashboarduser/tag/{comentNum}', 'DashBoardUserController@tag');
@@ -42,7 +43,7 @@ Route::patch('/zaiseki/{id}'  , 'DashBoardUserController@zaiseki');
 Route::patch('/taiseki/{id}'  , 'DashBoardUserController@taiseki');
 
 Route::group([
-
+    'middleware' => 'api',
     'prefix' => 'auth'
 
 ], function () {

@@ -1,26 +1,17 @@
 <template>
-  <v-container fluid grid-list-xl>
+  <v-container fluid grid-list-xl style="padding-top:0 !important">
     <v-layout row wrap>
+      <v-flex lg6 sm6 xs6>
+        <widget  icon="domain"   title="A001"   subTitle= 'ラインコード'  color="#3F51B5"/>
+      </v-flex>
+      <v-flex lg3 sm3 xs3>     
+      </v-flex>
+      <v-flex lg3 sm3 xs3>
+      </v-flex>
 
       <v-flex lg3 sm3 xs3>
-        <div class="inner-text">
-          <vue-svg-gauge
-            :start-angle="0"
-            :end-angle="360"
-            :value="3"
-            :separator-step="2"
-            :min="0"
-            :max="10"
-            gauge-color="#00b297"
-            :scale-interval="0.1"
-          >
-            <span class="inner-text" style="">fun</span>
-          </vue-svg-gauge>
-        </div>
-      </v-flex>
-      
-       <v-flex lg3 sm3 xs3>
-        <div class="inner-text">
+        <div class="inner-text2">
+         <div style="font-size:28px">4SW22227A4</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -30,56 +21,83 @@
             :max="10"
             gauge-color="#dc3545"
             
-          />
+          >
+          <div class="inner-text">
+          <span>10%</span>
+           </div>
+          </vue-svg-gauge>
+            <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
+          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
+        </div>
+      </v-flex>
+      
+       <v-flex lg3 sm3 xs3>
+        
+        <div class="inner-text2">
+        <div style="font-size:28px">8MA38248-04</div>
+          <vue-svg-gauge
+           :start-angle="0"
+            :end-angle="360"
+            :value="2"
+            :separator-step="2"
+            :min="0"
+            :max="10"
+            gauge-color="#dc3545"
+            
+          >
+          <div class="inner-text">
+          <span>20%</span>
+           </div>
+          </vue-svg-gauge>
+            <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
+          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
         </div>
       </v-flex>
       
       <v-flex lg3 sm3 xs3>
-        <div class="inner-text">
+         
+        <div class="inner-text2">
+          <div style="font-size:28px">8MA38293-10</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
-            :value="3"
+            :value="4"
             :separator-step="2"
             :min="0"
             :max="10"
-            gauge-color="#8CDFAD"
-            :scale-interval="0.1"
-          />
+            gauge-color="#00b297"
+            
+          >
+          <div class="inner-text">
+            <span>40%</span>
+          </div>
+          </vue-svg-gauge>
+          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
+          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
         </div>
+
       </v-flex>
 
        <v-flex lg3 sm3 xs3>
-        <div class="inner-text">
+        <div class="inner-text2">
+        <div style="font-size:28px">8MA41941-10</div>
           <vue-svg-gauge
-            :start-angle="0"
+           :start-angle="0"
             :end-angle="360"
-            :value="3"
+            :value="4"
             :separator-step="2"
             :min="0"
             :max="10"
-            gauge-color="#0866C6"
-            :scale-interval="0.1"
-          />
+            gauge-color="#00b297"
+            
+          >
+          <div class="inner-text">
+          <span>40%</span>
+          </div>
+          </vue-svg-gauge>
+          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
+          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
         </div>
-      </v-flex>
-
-      <!-- Widgets-->
-      <v-flex lg3 sm3 xs3>
-        <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
-      </v-flex>
-      <v-flex lg3 sm3 xs3>
-        <widget icon="money_off" title="1000"   subTitle= '生産予定数'  color="#dc3545"/>
-      </v-flex>
-      <v-flex lg3 sm3 xs3>
-        <widget icon="computer"  title="1000"   subTitle= '生産実績数'  color="#0866C6"/>
-      </v-flex>
-      <v-flex lg3 sm3 xs3>
-        <widget  icon="watch_later" title="1000"   subTitle= '差異'     color="#1D2939"/>
-      </v-flex>
-  
-      <v-flex lg12 sm12 xs12>
-        <chart-component />
       </v-flex>
     </v-layout>
   </v-container>
@@ -87,17 +105,18 @@
 
 <script>
 
-import ChartComponent from './HorizontalBarChart'
-//import HorizontalBarChart from '~/resources/assets/js/dashbord/HorizontalBarChart'
+import DoughnutChart from 'vue-doughnut-chart'
 export default {
-  components:{ChartComponent},
+  components: {
+    DoughnutChart
+  },
+
   data () {
     return {
+      percent: '25',
       data: {
-      
       },
       options: {
-      
       }
     }
   },
@@ -107,7 +126,19 @@ export default {
 <style>
 
 .inner-text {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #de3a21;
+  font-weight: 700;
+}
+
+.inner-text2 {
   height: 70%;
-  width:  70%;
+  width: 70%;
+
 }
 </style>

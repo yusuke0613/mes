@@ -3,7 +3,7 @@
   <v-navigation-drawer 
       app
       :mini-variant.sync="mini"
-      style="background-color:#0D47A1;"
+      style="background-color:#3F51B5"
       dark
       permanent
     >
@@ -20,6 +20,7 @@
             <v-list-tile
               v-for="(dashBoard, i) in dashBoards"
               :key="i"
+              v-if="dashBoard[3]"
             >
               <router-link :to="dashBoard[2]" style="color:#fff">
               <v-list-tile-title v-text="dashBoard[0]"></v-list-tile-title>
@@ -30,6 +31,7 @@
 
           <v-list-group
             prepend-icon="account_circle"
+            v-if="loginFlg"
           >
             <template v-slot:activator>
               <v-list-tile>
@@ -40,6 +42,7 @@
             <v-list-tile
               v-for="(admin, i) in admins"
               :key="i"
+              v-if="admin[3]"
             >
                 <router-link :to="admin[2]" style="color:#fff">
                 <v-list-tile-title v-text="admin[0]"></v-list-tile-title>
@@ -69,6 +72,7 @@
 
           <v-list-group
             prepend-icon="settings"
+            v-if="loginFlg"
           >
             <template v-slot:activator>
               <v-list-tile>
@@ -105,32 +109,34 @@
         data() {
             return {
             dashBoards: [
-                    ['進捗画面', 'donut_large', '/'],
+                    ['進捗画面', 'donut_large', '/' , true],
                   ],
 
             admins: [
-                    ['製造実行' , 'donut_large', '/productionexe']
+                    ['製造実行' , 'donut_large', '/productionexe', User.loggedIn()]
                   ],
             clients: [
-              ['投入画面'          , 'donut_large'],
-              ['作業中断'   , 'donut_large']
+              ['投入画面'   , 'donut_large', '/linesetting' , true],
+              ['作業中断'   , 'donut_large', '/linesetting' , true]
             ],
             settings: [
-              ['ライン設定'  , 'donut_large', '/linesetting'],
-              ['端末設定'    , 'donut_large', '/hostsetting'],
-              ['工程設定'　  , 'donut_large', '/processsetting'],
-              ['作業者設定'  , 'donut_large', '/workersetting']
+              ['ライン設定'  , 'donut_large', '/linesetting'    , User.loggedIn()],
+              ['端末設定'    , 'donut_large', '/hostsetting'    , User.loggedIn()],
+              ['工程設定'　  , 'donut_large', '/processsetting' , User.loggedIn()],
+              ['作業者設定'  , 'donut_large', '/workersetting'  , User.loggedIn()]
             ],
             navBar:null,
             //mini: true,
+            loginFlg: User.loggedIn()
             }
+            
         },
 
         created() {
             EventBus.$on('logout', () => {
                 User.logout()
             })
-
+           
         }
 
     }

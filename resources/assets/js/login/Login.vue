@@ -15,17 +15,10 @@
             ></v-text-field>
 
             <v-btn
-                color="green"
                 type="submit"
+                style="color:#fff;background-color:#3F51B5"
             >Login
             </v-btn>
-
-             <router-link to="/signup">
-                <v-btn 
-                    color="blue"
-                    type="submit"
-                >Sign Up</v-btn>
-            </router-link>
         </v-form>
     </v-container>
 </template>
