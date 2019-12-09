@@ -9,9 +9,18 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use App\Events\DashBordEvent;
 use PDF;
+use setasign\Fpdi\TcpdfFpdi;
+use TCPDF;
 
 class ProductionExeController extends Controller
 {
+
+    private $pdf; // インスタンス変数を宣言
+    public function __construct(TCPDF $pdf)
+    {
+         // コンストラクタインジェクションでTCPDFクラスをインスタンス化
+        $this->pdf = $pdf;
+    }
 
      /**
      * Create a new AuthController instance.
@@ -31,16 +40,16 @@ class ProductionExeController extends Controller
     }
 
     public function listPdf() {
-        
-        $data = ProductionExeResource::collection(ProductionExe::get());
-        $cont = ProductionExe::count();
-
-        $pdf = PDF::loadView('pdf.articulospdf',['articulos'=>$data,'cont'=>$cont]);
-        return $pdf->download('articulos.pdf');
-        
-      // $pdf = PDF::loadHTML('<h1>Hello World</h1>');
-
-    	//return $pdf->stream();
+        //$pdf = new TcpdfFpdi();
+        // フォント、スタイル、サイズ をセット
+        $this->pdf->setFont('kozminproregular','',10);
+        // ページを追加
+        $this->pdf->addPage();
+        // HTMLを描画、viewの指定と変数代入
+        $this->pdf->writeHTML(view("pdf.sample", ['name' => 'PDFさん'])->render());
+        // 出力の指定です、ファイル名、拡張子、Dはダウンロードを意味します。
+        $this->pdf->output('test' . '.pdf', 'D');
+        return;
     }
 
     /**
@@ -73,6 +82,8 @@ class ProductionExeController extends Controller
         return  ProductionExe::find($comentNum);
     }
 
+
+   
 
     /**
      * Display the specified resource.

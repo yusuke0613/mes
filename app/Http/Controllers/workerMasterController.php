@@ -59,6 +59,21 @@ class WorkerMasterController extends Controller
     }
 
 
+    public function findWorker(Request $request, WorkerMaster $workerMaster)
+    {
+        $users = [];
+        $users = WorkerMaster::where('workerID', $request->workerID)->get();
+ 
+        if (count($users) == 0) {
+            return 'no';
+        } else 
+        {
+            return 'yes';
+        }
+    }
+    
+
+
     /**
      * Display the specified resource.
      *

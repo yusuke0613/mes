@@ -1,17 +1,9 @@
 <template>
   <v-container fluid grid-list-xl style="padding-top:0 !important">
     <v-layout row wrap>
-      <v-flex lg6 sm6 xs6>
-        <widget  icon="domain"   title="A001"   subTitle= 'ラインコード'  color="#3F51B5"/>
-      </v-flex>
-      <v-flex lg3 sm3 xs3>     
-      </v-flex>
-      <v-flex lg3 sm3 xs3>
-      </v-flex>
-
       <v-flex lg3 sm3 xs3>
         <div class="inner-text2">
-         <div style="font-size:28px">4SW22227A4</div>
+         <div style="font-size:24px;text-align: center;">4SW22227A4</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -20,7 +12,6 @@
             :min="0"
             :max="10"
             gauge-color="#dc3545"
-            
           >
           <div class="inner-text">
           <span>10%</span>
@@ -34,7 +25,7 @@
        <v-flex lg3 sm3 xs3>
         
         <div class="inner-text2">
-        <div style="font-size:28px">8MA38248-04</div>
+        <div style="font-size:24px;text-align: center;">8MA38248-04</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -57,7 +48,7 @@
       <v-flex lg3 sm3 xs3>
          
         <div class="inner-text2">
-          <div style="font-size:28px">8MA38293-10</div>
+          <div style="font-size:24px;text-align: center;">8MA38293-10</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -80,7 +71,7 @@
 
        <v-flex lg3 sm3 xs3>
         <div class="inner-text2">
-        <div style="font-size:28px">8MA41941-10</div>
+        <div style="font-size:24px;text-align: center;">8MA41941-10</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -137,8 +128,8 @@ export default {
 }
 
 .inner-text2 {
-  height: 70%;
-  width: 70%;
+  height: 60%;
+  width:  60%;
 
 }
 </style>

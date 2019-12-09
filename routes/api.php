@@ -25,6 +25,7 @@ Route::apiResource('/Partstruct', 'PartStructController');
 Route::apiResource('/Productionexe', 'ProductionExeController');
 Route::get('/Productionexe/pdf', 'ProductionExeController@listPdf');
 
+Route::get('/WorkerMaster/worker/{workerID}', 'WorkerMasterController@findWorker');
 
 Route::get('dashboarduser/tag/{comentNum}', 'DashBoardUserController@tag');
 Route::patch('/gomi'          , 'DashBoardUserController@gomi');

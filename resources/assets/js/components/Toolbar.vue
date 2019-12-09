@@ -61,12 +61,10 @@
             <v-list-tile
               v-for="(client, i) in clients"
               :key="i"
-
             >
+              <router-link :to="client[2]" style="color:#fff">
               <v-list-tile-title v-text="client[0]"></v-list-tile-title>
-              <v-list-tile-action>
-                <v-icon v-text="client[1]"></v-icon>
-              </v-list-tile-action>
+              </router-link>
             </v-list-tile>
           </v-list-group>
 
@@ -116,8 +114,7 @@
                     ['製造実行' , 'donut_large', '/productionexe', User.loggedIn()]
                   ],
             clients: [
-              ['投入画面'   , 'donut_large', '/linesetting' , true],
-              ['作業中断'   , 'donut_large', '/linesetting' , true]
+              ['投入画面'   , 'donut_large', '/inputWork' , true],
             ],
             settings: [
               ['ライン設定'  , 'donut_large', '/linesetting'    , User.loggedIn()],
