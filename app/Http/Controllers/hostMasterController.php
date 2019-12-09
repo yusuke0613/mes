@@ -17,7 +17,6 @@ class hostMasterController extends Controller
      * @return void
      */
 
-
     /**
      * Display a listing of the resource.
      *
