@@ -1,15 +1,18 @@
 <template>
 <div>
+
   <v-navigation-drawer 
       app
       :mini-variant.sync="mini"
-      style="background-color:#3F51B5"
+      style="background-color: rgba(0,0,0,0.5) !important;"
       dark
       permanent
     >
+
       <v-list style="padding: 0">
           <v-list-group
             prepend-icon="access_alarm"
+
           >
             <template v-slot:activator>
               <v-list-tile>
@@ -88,14 +91,10 @@
             </v-list-tile>
           </v-list-group>
 
-      </v-list>   
+      </v-list>  
+
     </v-navigation-drawer>
-
-    
-    </div>
-
-
-
+  </div>
 </template>
 
 

@@ -12,9 +12,9 @@
         <script src="https://cdn.jsdelivr.net/npm/@plutonium-js/vue-stagger@1/dist/bundle.umd.js"></script>
         <title>Ito-san</title>
     </head>
-    <body>
-        <div id="app">
-          <v-app>
+    <body style="background-color:#ECEFF1 !important;">
+        <div id="app" style="background-color:#ECEFF1 !important;">
+          <v-app style="background-color:#ECEFF1 !important;">
           <app-home></app-home>
           </v-app>
         </div>

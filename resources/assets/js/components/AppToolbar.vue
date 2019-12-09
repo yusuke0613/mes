@@ -1,10 +1,10 @@
-<template>
+<template >
   <v-toolbar
     id="core-toolbar"
     app
     flat
     prominent
-    style="background: #eee;"
+
   >
     <v-icon @click.stop="mini = !mini">list</v-icon>
     

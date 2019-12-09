@@ -1,7 +1,10 @@
 
-<template>
-    <div>
-    <toolbar :mini=mini></toolbar>
+<template >
+    <div style="background-color:#ECEFF1 !important;">
+
+    <div style="">
+    <toolbar :mini=mini  ></toolbar>
+    </div>
     <v-toolbar
       id="core-toolbar"
       app
@@ -24,7 +27,7 @@
    
 
 
-     <v-content>
+     <v-content style="background-color:#ECEFF1 !important;">
 
       <v-container fluid fill-height>
         <v-fade-transition mode="out-in">
