@@ -14,14 +14,15 @@ use setasign\Fpdi\TcpdfFpdi;
 
 class ProductionExeController extends Controller
 {
-
+    /*
     private $pdf; // インスタンス変数を宣言
+
     public function __construct(TCPDF $pdf)
     {
          // コンストラクタインジェクションでTCPDFクラスをインスタンス化
         $this->pdf = $pdf;
     }
-
+    */
      /**
      * Create a new AuthController instance.
      *
