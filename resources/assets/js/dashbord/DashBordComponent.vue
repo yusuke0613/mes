@@ -185,7 +185,6 @@
                 :headers="headers"
                 :items="location"
                 :search="search"
-
                 :loading="true"
                 class="elevation-1"
                 :sort-by="['ID']"

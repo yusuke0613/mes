@@ -1,31 +1,10 @@
 <template>
   <v-container fluid grid-list-xl style="padding-top:0 !important">
     <v-layout row wrap>
-      <v-flex lg3 sm3 xs3>
-        <div class="inner-text2">
-         <div style="font-size:24px;text-align: center;">4SW22227A4</div>
-          <vue-svg-gauge
-           :start-angle="0"
-            :end-angle="360"
-            :value="2"
-            :separator-step="2"
-            :min="0"
-            :max="10"
-            gauge-color="#dc3545"
-          >
-          <div class="inner-text">
-          <span>10%</span>
-           </div>
-          </vue-svg-gauge>
-            <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
-          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
-        </div>
-      </v-flex>
-      
-       <v-flex lg3 sm3 xs3>
+       <v-flex lg4 sm4 xs12>
         
         <div class="inner-text2">
-        <div style="font-size:24px;text-align: center;">8MA38248-04</div>
+       
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -40,15 +19,18 @@
           <span>20%</span>
            </div>
           </vue-svg-gauge>
-            <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
-          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
         </div>
       </v-flex>
-      
-      <v-flex lg3 sm3 xs3>
-         
+      <v-flex lg2 sm2 xs12>
+        <div style="font-size:28px !important; text-align:center; color:#fff;background-color:#3F51B5">8MA38248-04</div>
+        <widget　title="1000"   subTitle= '実績数'  icon="build" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '計画数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '予定数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '？？数'  icon="calendar_today" color="#CFD8DC"/>
+      </v-flex>
+
+       <v-flex lg4 sm4 xs12>
         <div class="inner-text2">
-          <div style="font-size:24px;text-align: center;">8MA38293-10</div>
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
@@ -56,40 +38,74 @@
             :separator-step="2"
             :min="0"
             :max="10"
-            gauge-color="#00b297"
-            
-          >
-          <div class="inner-text">
-            <span>40%</span>
-          </div>
-          </vue-svg-gauge>
-          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
-          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
-        </div>
-
-      </v-flex>
-
-       <v-flex lg3 sm3 xs3>
-        <div class="inner-text2">
-        <div style="font-size:24px;text-align: center;">8MA41941-10</div>
-          <vue-svg-gauge
-           :start-angle="0"
-            :end-angle="360"
-            :value="4"
-            :separator-step="2"
-            :min="0"
-            :max="10"
-            gauge-color="#00b297"
+            gauge-color="#FFEA00"
             
           >
           <div class="inner-text">
           <span>40%</span>
-          </div>
+           </div>
           </vue-svg-gauge>
-          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#0866C6"/>
-          <widget  icon="domain"   title="1000"   subTitle= '生産計画数'  color="#00b297"/>
         </div>
       </v-flex>
+      <v-flex lg2 sm2 xs12>
+        <div style="font-size:28px !important; text-align:center; color:#fff;background-color:#3F51B5">4SW22227A4</div>
+        <widget　title="1000"   subTitle= '実績数'  icon="build" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '計画数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '予定数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '？？数'  icon="calendar_today" color="#CFD8DC"/>
+      </v-flex>      
+
+      <v-flex lg4 sm4 xs12>
+         
+        <div class="inner-text2">
+          <vue-svg-gauge
+           :start-angle="0"
+            :end-angle="360"
+            :value="8"
+            :separator-step="2"
+            :min="0"
+            :max="10"
+            gauge-color="#00b297"
+            
+          >
+          <div class="inner-text">
+            <span>80%</span>
+          </div>
+          </vue-svg-gauge>
+        </div>
+      </v-flex>
+       <v-flex lg2 sm2 xs12>
+        <div style="font-size:28px !important; text-align:center; color:#fff;background-color:#3F51B5">8MA38293-10</div>
+        <widget　title="1000"   subTitle= '実績数'  icon="build" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '計画数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '予定数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '？？数'  icon="calendar_today" color="#CFD8DC"/>
+      </v-flex>      
+
+       <v-flex lg4 sm4 xs12>
+        <div class="inner-text2">
+          <vue-svg-gauge
+           :start-angle="0"
+            :end-angle="360"
+            :value="10"
+            :separator-step="2"
+            :min="0"
+            :max="10"
+            gauge-color="#00b297"
+          >
+          <div class="inner-text">
+          <span>100%</span>
+          </div>
+          </vue-svg-gauge>
+        </div>
+      </v-flex>
+       <v-flex lg2 sm2 xs12>
+        <div style="font-size:28px !important; text-align:center; color:#fff;background-color:#3F51B5">8MA41941-10</div>
+        <widget　title="1000"   subTitle= '実績数'  icon="build" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '計画数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '予定数'  icon="calendar_today" color="#CFD8DC"/>
+        <widget　title="1000"   subTitle= '？？数'  icon="calendar_today" color="#CFD8DC"/>
+      </v-flex>   
     </v-layout>
   </v-container>
 </template>
@@ -108,7 +124,15 @@ export default {
       data: {
       },
       options: {
-      }
+      },
+       labels: ['SU', 'MO', 'TU', 'WED', 'TH', 'FR', 'SA'],
+        time: 0,
+        forecast: [
+          { day: '実績', icon: 'build', temp:100 },
+          { day: '計画', icon: 'mdi-white-balance-sunny', temp:100 },
+          { day: '予定', icon: 'mdi-cloud', temp:100},
+          { day: '？？', icon: 'mdi-cloud', temp:100},
+        ],
     }
   },
 }
@@ -122,14 +146,13 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: #de3a21;
+  font-size: 34px;
   font-weight: 700;
 }
 
 .inner-text2 {
-  height: 60%;
-  width:  60%;
+  height: 90%;
+  width:  90%;
 
 }
 </style>
