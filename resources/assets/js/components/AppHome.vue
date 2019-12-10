@@ -55,7 +55,7 @@
         },
 
       data: () => ({
-          mini:false,
+          mini:true,
           items: [
             {title : 'Login', to : '/login', show : !User.loggedIn()},
             {title : 'Logout', to : '/logout', show : User.loggedIn()}

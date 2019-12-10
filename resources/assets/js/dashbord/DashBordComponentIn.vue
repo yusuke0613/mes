@@ -2,9 +2,7 @@
   <v-container fluid grid-list-xl style="padding-top:0 !important">
     <v-layout row wrap>
        <v-flex lg4 sm4 xs12>
-        
         <div class="inner-text2">
-       
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
