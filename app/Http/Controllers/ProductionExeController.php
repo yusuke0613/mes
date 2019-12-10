@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Events\DashBordEvent;
 use PDF;
 use setasign\Fpdi\TcpdfFpdi;
-use TCPDF;
+//use TCPDF;
 
 class ProductionExeController extends Controller
 {
