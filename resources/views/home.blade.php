@@ -10,7 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@plutonium-js/vue-stagger@1/dist/bundle.umd.js"></script>
-        <title>Ito-san</title>
+        <title>MES Sample App</title>
     </head>
     <body style="background-color:#ECEFF1 !important;">
         <div id="app" style="background-color:#ECEFF1 !important;">

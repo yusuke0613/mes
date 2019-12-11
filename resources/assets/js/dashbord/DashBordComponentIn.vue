@@ -2,20 +2,21 @@
   <v-container fluid grid-list-xl style="padding-top:0 !important">
     <v-layout row wrap>
        <v-flex lg4 sm4 xs12>
-        <div class="inner-text2">
+         <div class="inner-text2">
           <vue-svg-gauge
            :start-angle="0"
             :end-angle="360"
-            :value="2"
+            :value="8"
             :separator-step="2"
             :min="0"
             :max="10"
-            gauge-color="#dc3545"
+            :inner-radius="80"
+            gauge-color="#00b297"
             
           >
           <div class="inner-text">
-          <span>20%</span>
-           </div>
+            <span>80%</span>
+          </div>
           </vue-svg-gauge>
         </div>
       </v-flex>
@@ -36,6 +37,7 @@
             :separator-step="2"
             :min="0"
             :max="10"
+            :inner-radius="80"
             gauge-color="#FFEA00"
             
           >
@@ -63,6 +65,7 @@
             :separator-step="2"
             :min="0"
             :max="10"
+            :inner-radius="80"
             gauge-color="#00b297"
             
           >
@@ -89,6 +92,7 @@
             :separator-step="2"
             :min="0"
             :max="10"
+            :inner-radius="80"
             gauge-color="#00b297"
           >
           <div class="inner-text">
@@ -107,15 +111,17 @@
     </v-layout>
   </v-container>
 </template>
-
 <script>
+
 
 import DoughnutChart from 'vue-doughnut-chart'
 export default {
   components: {
     DoughnutChart
   },
-
+  created: {
+  
+  },
   data () {
     return {
       percent: '25',
@@ -149,8 +155,13 @@ export default {
 }
 
 .inner-text2 {
-  height: 90%;
-  width:  90%;
+  height: 70%;
+  width:  70%;
+}
 
+.inner-text3 {
+  height: 50%;
+  width:  50%;
+  position: absolute
 }
 </style>
