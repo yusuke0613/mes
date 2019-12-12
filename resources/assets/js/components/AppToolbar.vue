@@ -4,7 +4,6 @@
     app
     flat
     prominent
-
   >
     <v-icon @click.stop="mini = !mini">list</v-icon>
     
@@ -21,7 +20,6 @@
 </template>
 
 <script>
-
 
 export default {
   data: () => ({

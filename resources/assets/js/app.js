@@ -57,7 +57,6 @@ Vue.component('VueSvgGauge', VueSvgGauge);
 Vue.component('location-statistic', LocationStatistic);
 Vue.component('site-view-statistic', SiteViewStatistic);
 Vue.component('total-earnings-statistic', TotalEarningsStatistic);
-
 Vue.component('AppHome', require('./components/AppHome.vue').default);
 
 /**
@@ -68,6 +67,5 @@ Vue.component('AppHome', require('./components/AppHome.vue').default);
 
 const app = new Vue({
     el: '#app',
-
     router
 });
