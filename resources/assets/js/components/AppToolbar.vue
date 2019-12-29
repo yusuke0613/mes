@@ -1,9 +1,7 @@
 <template >
   <v-toolbar
-    id="core-toolbar"
     app
-    flat
-    prominent
+    dark
   >
     <v-icon @click.stop="mini = !mini">list</v-icon>
     
@@ -24,7 +22,7 @@
 export default {
   data: () => ({
    
-    title: "Sample App",
+    title:"Sample App",
     responsive: false,
     items: [
       {title : 'Login', to : '/login', show : !User.loggedIn()},
@@ -54,5 +52,8 @@ export default {
 <style>
   #core-toolbar a {
     text-decoration: none;
+  }
+  nav {
+    background-color:#424242 !important
   }
 </style>

@@ -4,7 +4,7 @@
   <v-navigation-drawer 
       app
       :mini-variant.sync="mini"
-      style="background-color: #3F51B5 !important;"
+      class="grey darken-4"
       permanent
       dark
     >

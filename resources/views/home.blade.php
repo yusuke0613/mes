@@ -12,9 +12,9 @@
         <script src="https://cdn.jsdelivr.net/npm/@plutonium-js/vue-stagger@1/dist/bundle.umd.js"></script>
         <title>MES Sample App</title>
     </head>
-    <body style="background-color:#ECEFF1 !important;">
-        <div id="app" style="background-color:#ECEFF1 !important;">
-          <v-app style="background-color:#ECEFF1 !important;">
+    <body  style="background-color:#424242 !important">
+        <div id="app"  style="background-color:#424242 !important">
+          <v-app  style="background-color:#424242 !important">
           <app-home></app-home>
           </v-app>
         </div>

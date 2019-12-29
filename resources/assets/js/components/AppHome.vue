@@ -1,16 +1,14 @@
 
 <template >
-    <div style="background-color:#ECEFF1 !important;">
-
-    <div style="">
+    <div>
     <toolbar :mini=mini  ></toolbar>
-    </div>
     <v-toolbar
       id="core-toolbar"
       app
       flat
       prominent
       style="background: #eee;"
+      dark
     >
       <v-icon @click.stop="mini = !mini">list</v-icon>
       
@@ -27,9 +25,9 @@
    
 
 
-     <v-content style="background-color:#ECEFF1 !important;">
+     <v-content style="background-color:#424242 !important">
 
-      <v-container fluid fill-height>
+      <v-container fluid fill-height dark>
         <v-fade-transition mode="out-in">
           <router-view></router-view>
         </v-fade-transition>
