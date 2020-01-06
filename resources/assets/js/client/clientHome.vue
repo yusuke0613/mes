@@ -390,7 +390,7 @@ table.v-table tbody td {
 }
 
 .theme--dark.v-table {
-  background: linear-gradient(to right, rgba(255,255,255,0.1) 0, rgba(255,255,255,0.4) 90%) !important;
+  background: linear-gradient(to right, rgba(255,255,255,0.3) 0, rgba(255,255,255,0.1) 100%) !important;
 }
 
 </style>
