@@ -600,6 +600,11 @@
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
 
+"@tweenjs/tween.js@^17.3.0":
+  version "17.6.0"
+  resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-17.6.0.tgz#61bc86c372bcc5a9f744e661dd6ae16f5ee7d0ef"
+  integrity sha512-utSXj0WHi4qr/iyfFHGMJBaL+ixQ2N7BAmx1R5g8jBqykJfjBUQ0hKWwXf767hbALC3zOoOIofKYSDWu5n04JQ==
+
 "@types/caseless@*":
   version "0.12.2"
   resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.2.tgz#f65d3d6389e01eeb458bd54dc8f52b95a9463bc8"
@@ -1803,6 +1808,11 @@ commander@^2.19.0, commander@^2.20.0:
   version "2.20.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.0.tgz#d58bb2b5c1ee8f87b0d340027e9e94e222c5a422"
 
+commander@^2.20.3:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
+
 commander@~2.19.0:
   version "2.19.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.19.0.tgz#f6198aa84e5b83c46054b94ddedbfed5ee9ff12a"
@@ -2156,6 +2166,11 @@ cssesc@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/cssesc/-/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha512-/Tb/JcjK111nNScGob5MNtsntNM1aCNUDipB/TkwZFhyDrrE47SOx/18wF2bbjgc3ZzCSKW1T5nt5EbFoAz/Vg==
+
+cssfilter@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/cssfilter/-/cssfilter-0.0.10.tgz#c6d2672632a2e5c83e013e6864a42ce8defd20ae"
+  integrity sha1-xtJnJjKi5cg+AT5oZKQs6N79IK4=
 
 cssnano-preset-default@^4.0.7:
   version "4.0.7"
@@ -4559,13 +4574,14 @@ material-design-icons-iconfont@^5.0.1:
   resolved "https://registry.yarnpkg.com/material-design-icons-iconfont/-/material-design-icons-iconfont-5.0.1.tgz#371875ed7fe9c8c520bc7123c3231feeab731c31"
   integrity sha512-Xg6rIdGrfySTqiTZ6d+nQbcFepS6R4uKbJP0oAqyeZXJY/bX6mZDnOmmUJusqLXfhIwirs0c++a6JpqVa8RFvA==
 
-mavon-editor@^2.7.5:
-  version "2.7.7"
-  resolved "https://registry.yarnpkg.com/mavon-editor/-/mavon-editor-2.7.7.tgz#6b491caf6fababacb69883a5310dc8ad251f1c9e"
-  integrity sha512-lXnYe+dztKepbv8bi2nedRqG/AwyUDF8gmkv9lHD3fpVJ1+pzAS6YILRIryKCvO9qPIOPEThHsda2DxtlzRsZA==
+mavon-editor@^2.8.2:
+  version "2.8.2"
+  resolved "https://registry.yarnpkg.com/mavon-editor/-/mavon-editor-2.8.2.tgz#442770afba4edd3200d7c3c5ad08114b0c0cf4b5"
+  integrity sha512-+sGuaeIDETdpk53JZPfm073T59pyCnW3LypHv+x7ywKUZrg8Qt0/PTm6m8WBvTqGVaedq2z4wNN11fRto2T1Ew==
   dependencies:
     highlight.js "^9.11.0"
     highlight.js-async-webpack "^1.0.4"
+    xss "^1.0.6"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -7650,6 +7666,11 @@ vue-chartjs@^3.5.0:
   resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.5.0.tgz#edd0c2be94c521bcbc5357c24afb9f3560855f84"
   integrity sha512-yWNhG3B6g6lvYqNInP0WaDWNZG/SNb6XnltkjR0wYC5pmLm6jvdiotj8er7Mui8qkJGfLZe6ULjrZdHWjegAUg==
 
+vue-doughnut-chart@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/vue-doughnut-chart/-/vue-doughnut-chart-0.1.0.tgz#df51333b30e7ceab25ddca68e02dfd5409930103"
+  integrity sha512-8cegjZYJbVhHY5XAas1vEgHNm+4aU7kXJsbpsaiNr/sNLu6wuCuaKrWi3gm3Ag3LW9KDDGT8bfyTd6p9sA+CMw==
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
@@ -7694,6 +7715,13 @@ vue-style-loader@^4.1.0:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-svg-gauge@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/vue-svg-gauge/-/vue-svg-gauge-1.2.1.tgz#a1c0f5527f30ec214002611c19290394734897b3"
+  integrity sha512-AKASvAhH4gmgSV3kZ0e3kPgA7/YijorWj26fHqTM+dy1pVzrIAjfyr7IyILyU9Bu7jYIbw76nf+AKoKFa3jwhQ==
+  dependencies:
+    "@tweenjs/tween.js" "^17.3.0"
 
 vue-template-compiler@^2.6.10:
   version "2.6.10"
@@ -7936,6 +7964,14 @@ xdg-basedir@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-3.0.0.tgz#496b2cc109eca8dbacfe2dc72b603c17c5870ad4"
   integrity sha1-SWsswQnsqNus/i3HK2A8F8WHCtQ=
+
+xss@^1.0.6:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.10.tgz#5cd63a9b147a755a14cb0455c7db8866120eb4d2"
+  integrity sha512-qmoqrRksmzqSKvgqzN0055UFWY7OKx1/9JWeRswwEVX9fCG5jcYRxa/A2DHcmZX6VJvjzHRQ2STeeVcQkrmLSw==
+  dependencies:
+    commander "^2.20.3"
+    cssfilter "0.0.10"
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
