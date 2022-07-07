@@ -32,7 +32,7 @@
         "laravel-echo": "^1.5.4",
         "material-design-icons-iconfont": "^5.0.1",
         "mavon-editor": "^2.7.5",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "npm": "^6.13.1",
         "or": "^0.2.0",
         "pusher": "^2.2.2",
